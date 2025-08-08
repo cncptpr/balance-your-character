@@ -1,10 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjeq7hygogjmc"]
+[gd_scene load_steps=3 format=3 uid="uid://cjeq7hygogjmc"]
 
 [ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://j366t82utj4u" path="res://player.gd" id="1_onrkg"]
 
 [node name="Player" type="Node2D"]
+script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -136)
 scale = Vector2(0.216295, 0.216295)
 texture = ExtResource("1_4flbx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -312.0
+offset_right = 30.0
+offset_bottom = -289.0
+text = "100/100"
