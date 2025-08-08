@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://coirn3vq5h333"]
+[gd_scene load_steps=5 format=3 uid="uid://coirn3vq5h333"]
 
 [ext_resource type="Script" uid="uid://djee81mkeqvx0" path="res://scene.gd" id="1_nxogm"]
 [ext_resource type="PackedScene" uid="uid://cjeq7hygogjmc" path="res://player.tscn" id="2_3253y"]
+[ext_resource type="PackedScene" uid="uid://gvdf1sea6l68" path="res://equipment/sword/sword.tscn" id="3_pdg6h"]
+[ext_resource type="PackedScene" uid="uid://02iethx8s0lv" path="res://equipment/fireball/fireball.tscn" id="4_exjn7"]
 
 [node name="FigthScene" type="Node2D"]
 script = ExtResource("1_nxogm")
@@ -12,6 +14,8 @@ position = Vector2(365, 476)
 [node name="Label" parent="Player1" index="1"]
 metadata/_edit_use_anchors_ = true
 
+[node name="Fireball" parent="Player1/Inventory" index="0" instance=ExtResource("4_exjn7")]
+
 [node name="Player2" parent="." instance=ExtResource("2_3253y")]
 position = Vector2(833, 473)
 
@@ -20,6 +24,12 @@ flip_h = true
 
 [node name="Label" parent="Player2" index="1"]
 metadata/_edit_use_anchors_ = true
+
+[node name="Inventory" parent="Player2" index="3"]
+scale = Vector2(-1, 1)
+
+[node name="Sword" parent="Player2/Inventory" index="0" instance=ExtResource("3_pdg6h")]
+position = Vector2(127, -2)
 
 [node name="GameEnd" type="Control" parent="."]
 visible = false
