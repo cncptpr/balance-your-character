@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://02iethx8s0lv"]
+
+[ext_resource type="Script" uid="uid://tec2e4tdenho" path="res://equipment/fireball/fireball.gd" id="1_h7nsf"]
+[ext_resource type="Texture2D" uid="uid://dp15oijd3wbry" path="res://assets/fireball/FB001.png" id="2_i2yo7"]
+
+[node name="Fireball" type="Node2D"]
+script = ExtResource("1_h7nsf")
+metadata/_custom_type_script = "uid://bo1i0lv8dti7f"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i2yo7")
