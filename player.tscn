@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjeq7hygogjmc"]
+
+[ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="1_4flbx"]
+
+[node name="Player" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -136)
+scale = Vector2(0.216295, 0.216295)
+texture = ExtResource("1_4flbx")

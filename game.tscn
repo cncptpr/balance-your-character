@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://866wc3skafrs"]
+
+[ext_resource type="PackedScene" uid="uid://cjeq7hygogjmc" path="res://player.tscn" id="1_80nbo"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Scene" type="Node2D" parent="."]
+
+[node name="Player1" parent="Scene" instance=ExtResource("1_80nbo")]
+position = Vector2(365, 476)
+
+[node name="Player2" parent="Scene" instance=ExtResource("1_80nbo")]
+position = Vector2(833, 473)
+
+[node name="Sprite2D" parent="Scene/Player2" index="0"]
+flip_h = true
+
+[editable path="Scene/Player2"]
