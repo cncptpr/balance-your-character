@@ -17,3 +17,7 @@ offset_top = -312.0
 offset_right = 30.0
 offset_bottom = -289.0
 text = "100/100"
+
+[node name="RoundTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RoundTimer" to="." method="attack"]

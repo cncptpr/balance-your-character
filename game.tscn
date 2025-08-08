@@ -23,15 +23,57 @@ flip_h = true
 [node name="Label" parent="Scene/Player2" index="1"]
 metadata/_edit_use_anchors_ = true
 
-[node name="RoundTimer" type="Timer" parent="Scene"]
-wait_time = 5.0
-autostart = true
+[node name="GameEnd" type="Control" parent="Scene"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 555.0
+offset_top = 206.0
+offset_right = 595.0
+offset_bottom = 246.0
+
+[node name="ColorRect" type="ColorRect" parent="Scene/GameEnd"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.997573, 1)
+color = Color(4.33177e-06, 0.647806, 0.0695713, 1)
+
+[node name="Label" type="Label" parent="Scene/GameEnd/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Drawwwwwww"
+
+[node name="GameStart" type="Control" parent="Scene"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Scene/GameStart"]
+layout_mode = 0
+offset_left = 573.0
+offset_top = 196.0
+offset_right = 664.0
+offset_bottom = 227.0
+text = "Start Gane"
 
 [connection signal="deal_damage" from="Scene/Player1" to="Scene/Player2" method="take_damage"]
+[connection signal="rip" from="Scene/Player1" to="Scene" method="_on_player_1_rip"]
 [connection signal="deal_damage" from="Scene/Player2" to="Scene/Player1" method="take_damage"]
-[connection signal="timeout" from="Scene/RoundTimer" to="Scene" method="tick_round"]
-[connection signal="timeout" from="Scene/RoundTimer" to="Scene/Player1" method="attack"]
-[connection signal="timeout" from="Scene/RoundTimer" to="Scene/Player2" method="attack"]
+[connection signal="rip" from="Scene/Player2" to="Scene" method="_on_player_2_rip"]
+[connection signal="pressed" from="Scene/GameStart/Button" to="Scene" method="start_figth"]
 
 [editable path="Scene/Player1"]
 [editable path="Scene/Player2"]
