@@ -1,13 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://02iethx8s0lv"]
+[gd_scene load_steps=7 format=3 uid="uid://02iethx8s0lv"]
 
 [ext_resource type="Script" uid="uid://tec2e4tdenho" path="res://equipment/fireball/fireball.gd" id="1_h7nsf"]
 [ext_resource type="Resource" uid="uid://d0jvy1f0fluk4" path="res://equipment/fireball/fireball-stats.tres" id="2_ah007"]
 [ext_resource type="Texture2D" uid="uid://dp15oijd3wbry" path="res://assets/fireball/FB001.png" id="2_i2yo7"]
+
+[sub_resource type="Animation" id="Animation_ah007"]
+resource_name = "attack_fireball"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D_projectile:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.633333, 0.98088, 0.995027),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1e-05),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(49, 15), Vector2(109, -16), Vector2(165, -1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ugjba"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D_projectile:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vwujw"]
+_data = {
+&"RESET": SubResource("Animation_ugjba"),
+&"attack_fireball": SubResource("Animation_ah007")
+}
 
 [node name="Fireball" type="Node2D"]
 script = ExtResource("1_h7nsf")
 stats = ExtResource("2_ah007")
 metadata/_custom_type_script = "uid://bo1i0lv8dti7f"
 
+[node name="Sprite2D_projectile" type="Sprite2D" parent="."]
+texture = ExtResource("2_i2yo7")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_i2yo7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vwujw")
+}
+speed_scale = 2.0
+movie_quit_on_finish = true

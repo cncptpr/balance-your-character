@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://coirn3vq5h333"]
+[gd_scene load_steps=6 format=3 uid="uid://coirn3vq5h333"]
 
 [ext_resource type="Script" uid="uid://djee81mkeqvx0" path="res://scene.gd" id="1_nxogm"]
 [ext_resource type="PackedScene" uid="uid://cjeq7hygogjmc" path="res://player.tscn" id="2_3253y"]
-[ext_resource type="Texture2D" uid="uid://bcmlldomyn5v4" path="res://assets/LN_Fighter.png" id="3_jyicl"]
 [ext_resource type="PackedScene" uid="uid://gvdf1sea6l68" path="res://equipment/sword/sword.tscn" id="3_pdg6h"]
 [ext_resource type="PackedScene" uid="uid://02iethx8s0lv" path="res://equipment/fireball/fireball.tscn" id="4_exjn7"]
 [ext_resource type="PackedScene" uid="uid://di1qy5nkg08ky" path="res://equipment/plank/plank.tscn" id="5_nhxt3"]
@@ -12,10 +11,6 @@ script = ExtResource("1_nxogm")
 
 [node name="Player1" parent="." instance=ExtResource("2_3253y")]
 position = Vector2(365, 476)
-
-[node name="Sprite2D" parent="Player1/Appearance" index="0"]
-texture = ExtResource("3_jyicl")
-flip_h = true
 
 [node name="Sword" parent="Player1/Appearance/Sprite2D/Inventory" index="0" instance=ExtResource("3_pdg6h")]
 position = Vector2(35, -49.4178)
@@ -32,10 +27,6 @@ position = Vector2(833, 473)
 
 [node name="Appearance" parent="Player2" index="0"]
 scale = Vector2(-1, 1)
-
-[node name="Sprite2D" parent="Player2/Appearance" index="0"]
-texture = ExtResource("3_jyicl")
-flip_h = true
 
 [node name="Fireball" parent="Player2/Appearance/Sprite2D/Inventory" index="0" instance=ExtResource("4_exjn7")]
 position = Vector2(27, -32.2609)

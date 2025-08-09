@@ -189,11 +189,5 @@ one_shot = true
 [node name="WarmupTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_sweqy")
-}
-speed_scale = 2.0
-
 [connection signal="timeout" from="CooldownTimer" to="." method="prepare_attack"]
 [connection signal="timeout" from="WarmupTimer" to="." method="attack"]
