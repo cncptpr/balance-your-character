@@ -1,8 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjeq7hygogjmc"]
+[gd_scene load_steps=7 format=3 uid="uid://cjeq7hygogjmc"]
 
 [ext_resource type="Script" uid="uid://j366t82utj4u" path="res://player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="2_g1dw6"]
 [ext_resource type="Resource" uid="uid://xc1rshvkbyc4" path="res://player/base_player_stats.tres" id="2_i3pqv"]
+
+[sub_resource type="Animation" id="Animation_onrkg"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_i3pqv"]
+resource_name = "Attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -136), Vector2(448, -132), Vector2(6.00003, -139)]
+}
+
+[sub_resource type="Animation" id="Animation_hqtel"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -136)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sweqy"]
+_data = {
+&"Attack": SubResource("Animation_i3pqv"),
+&"Idle": SubResource("Animation_onrkg"),
+&"RESET": SubResource("Animation_hqtel")
+}
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_rkbax")
@@ -31,3 +71,9 @@ position = Vector2(64, -160)
 
 [connection signal="timeout" from="CooldownTimer" to="." method="prepare_attack"]
 [connection signal="timeout" from="WarmupTimer" to="." method="attack"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sweqy")
+}
+speed_scale = 2.0
+

@@ -42,7 +42,11 @@ func attack():
 	
 	$CooldownTimer.start(attack_stats.cooldown)
 	
-	
+	var damage = int(randf_range(5, 10))
+	deal_damage.emit(damage)
+	$AnimationPlayer.play("Attack")
+	print(name, ": Attacking with damage ", damage)
+
 func take_damage(damage: int):
 	var defend_stats = EquipmentStats.new()
 	defend_stats.apply_stats(base_stats)

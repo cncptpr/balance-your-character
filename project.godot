@@ -15,6 +15,10 @@ run/main_scene="uid://866wc3skafrs"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="balance-your-character"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
