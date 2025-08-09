@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://cjeq7hygogjmc"]
 
 [ext_resource type="Script" uid="uid://j366t82utj4u" path="res://player.gd" id="1_rkbax"]
-[ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="2_g1dw6"]
 [ext_resource type="Resource" uid="uid://xc1rshvkbyc4" path="res://player/base_player_stats.tres" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bcmlldomyn5v4" path="res://assets/LN_Fighter.png" id="3_i3pqv"]
 
 [sub_resource type="Animation" id="Animation_i3pqv"]
 resource_name = "Attack"
@@ -157,7 +157,8 @@ base_stats = ExtResource("2_i3pqv")
 [node name="Sprite2D" type="Sprite2D" parent="Appearance"]
 position = Vector2(0, -136)
 scale = Vector2(0.216295, 0.216295)
-texture = ExtResource("2_g1dw6")
+texture = ExtResource("3_i3pqv")
+flip_h = true
 
 [node name="Inventory" type="Node2D" parent="Appearance/Sprite2D"]
 position = Vector2(295.892, -122.662)
