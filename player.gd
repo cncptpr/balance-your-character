@@ -87,7 +87,7 @@ func take_damage(damage: int):
 		damage_taken, " taken.")
 	
 	health = move_toward(health, 0, damage_taken)
-	$Label.text = str(round(health)) + "/" + str(round(max_health))
+	$LifeCounter.text = str(round(health)) + "/" + str(round(max_health))
 	
 	if health == 0: died()
 

@@ -195,7 +195,7 @@ root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_dw050")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="lifecounter" type="Label" parent="."]
+[node name="LifeCounter" type="Label" parent="."]
 offset_left = -32.0
 offset_top = -312.0
 offset_right = 30.0
