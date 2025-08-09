@@ -1,4 +1,4 @@
-extends Node2D
+class_name Player extends Node2D
 
 signal deal_damage(damage: float)
 signal rip()
@@ -6,15 +6,26 @@ signal rip()
 @export var max_health: float = 100
 var health: float = max_health
 
-@onready var animationTree : AnimationTree = $Appearance/AnimationTree
-@onready var animationStateMachine: AnimationNodeStateMachinePlayback = animationTree["parameters/playback"]
-
 @export var base_stats: EquipmentStats
 var attack_stats: EquipmentStats
+
+@export var inventory_node: NodePath
+@export var equipmentSlots: EquipmentSlots
+
+@onready var animationTree : AnimationTree = $Appearance/AnimationTree
+@onready var animationStateMachine: AnimationNodeStateMachinePlayback = animationTree["parameters/playback"]
 
 func _ready() -> void:
 	animationTree.active = true
 	animationStateMachine.travel("Idle")
+	for equipmentScene in equipmentSlots.list():
+		var equipment = equipmentScene.instantiate()
+		if equipment is not Equipment:
+			continue
+		$Appearance/Sprite2D/Inventory.add_child(equipment)
+
+func flip():
+	$Appearance.scale.x = -1
 
 func start_figth():
 	print(name, ": Start Figth")
