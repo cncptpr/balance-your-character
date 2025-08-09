@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://866wc3skafrs"]
 
-[ext_resource type="PackedScene" uid="uid://coirn3vq5h333" path="res://figth_scene.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bj17v2p5br21r" path="res://game.gd" id="1_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://dgb5jjsoqkkw1" path="res://main_menu.tscn" id="2_e2o6t"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e2o6t")
-figthScene = ExtResource("1_80nbo")
+currentScene = ExtResource("2_e2o6t")

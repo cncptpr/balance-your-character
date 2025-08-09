@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0nhskn2dkhhk"]
+
+[ext_resource type="Script" uid="uid://do1f5k0ri6sjs" path="res://balance_screen.gd" id="1_icfci"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4sabo"]
+
+[node name="balance_screen" type="Node2D"]
+script = ExtResource("1_icfci")
+
+[node name="title" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="title"]
+position = Vector2(155.969, 260.531)
+scale = Vector2(236.062, 462.938)
+texture = SubResource("PlaceholderTexture2D_4sabo")
+
+[node name="play again" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="play again"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.852
+anchor_top = 3.11
+anchor_right = -1.852
+anchor_bottom = 3.11
+offset_left = 101.08
+offset_top = 434.6
+offset_right = 357.08
+offset_bottom = 498.6
+text = "FIGHT"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="play again/Button" to="." method="_on_button_pressed_fight"]

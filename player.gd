@@ -60,7 +60,6 @@ func attack():
 	deal_damage.emit(attack_stats.damage)
 	
 	$CooldownTimer.start(attack_stats.cooldown)
-	
 
 func take_damage(damage: int):
 	var defend_stats = EquipmentStats.new()
