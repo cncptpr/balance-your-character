@@ -20,8 +20,8 @@ metadata/_edit_use_anchors_ = true
 [node name="Player2" parent="." instance=ExtResource("2_3253y")]
 position = Vector2(833, 473)
 
-[node name="Sprite2D" parent="Player2" index="0"]
-flip_h = true
+[node name="Appearance" parent="Player2" index="0"]
+scale = Vector2(-1, 1)
 
 [node name="Label" parent="Player2" index="1"]
 metadata/_edit_use_anchors_ = true

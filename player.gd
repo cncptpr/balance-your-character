@@ -6,8 +6,15 @@ signal rip()
 @export var max_health: float = 100
 var health: float = max_health
 
+@onready var animationTree : AnimationTree = $Appearance/AnimationTree
+@onready var animationStateMachine: AnimationNodeStateMachinePlayback = animationTree["parameters/playback"]
+
 @export var base_stats: EquipmentStats
 var attack_stats: EquipmentStats
+
+func _ready() -> void:
+	animationTree.active = true
+	animationStateMachine.travel("Idle")
 
 func start_figth():
 	print(name, ": Start Figth")
@@ -32,6 +39,7 @@ func prepare_attack() -> void:
 			attack_stats.apply_stats(stats)
 	attack_stats.apply_mods()
 	
+	animationStateMachine.travel("Attack") 
 	$WarmupTimer.start(attack_stats.warmup)
 
 func attack():
@@ -42,7 +50,7 @@ func attack():
 	
 	$CooldownTimer.start(attack_stats.cooldown)
 	
-	
+
 func take_damage(damage: int):
 	var defend_stats = EquipmentStats.new()
 	defend_stats.apply_stats(base_stats)
@@ -65,6 +73,6 @@ func take_damage(damage: int):
 	if health == 0: died()
 
 func died():
-		print(name, ": RIP")
-		rip.emit()
-		self.scale.y = -1
+	print(name, ": RIP")
+	rip.emit()
+	animationStateMachine.travel("Rip")

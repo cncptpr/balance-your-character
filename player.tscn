@@ -1,17 +1,175 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjeq7hygogjmc"]
+[gd_scene load_steps=17 format=3 uid="uid://cjeq7hygogjmc"]
 
 [ext_resource type="Script" uid="uid://j366t82utj4u" path="res://player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="2_g1dw6"]
 [ext_resource type="Resource" uid="uid://xc1rshvkbyc4" path="res://player/base_player_stats.tres" id="2_i3pqv"]
 
+[sub_resource type="Animation" id="Animation_i3pqv"]
+resource_name = "Attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -136), Vector2(283, -138), Vector2(6.00003, -139)]
+}
+
+[sub_resource type="Animation" id="Animation_onrkg"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.216295, 0.216295), Vector2(0.216295, 0.19096), Vector2(0.216295, 0.216295)]
+}
+
+[sub_resource type="Animation" id="Animation_hqtel"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -136)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.216295, 0.216295)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_sweqy"]
+resource_name = "Rip"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -136), Vector2(-61, -161), Vector2(-147, -56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.59349]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sweqy"]
+_data = {
+&"Attack": SubResource("Animation_i3pqv"),
+&"Idle": SubResource("Animation_onrkg"),
+&"RESET": SubResource("Animation_hqtel"),
+&"Rip": SubResource("Animation_sweqy")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_onrkg"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hqtel"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2hs0m"]
+animation = &"Rip"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sweqy"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2hs0m"]
+advance_mode = 2
+advance_expression = "isAttacking==true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1jxqw"]
+xfade_time = 0.1
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dw050"]
+advance_mode = 2
+advance_expression = "rip == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b26j0"]
+advance_mode = 2
+advance_expression = "rip == true"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dw050"]
+states/Attack/node = SubResource("AnimationNodeAnimation_onrkg")
+states/Attack/position = Vector2(562, 91)
+states/Idle/node = SubResource("AnimationNodeAnimation_hqtel")
+states/Idle/position = Vector2(485, 192)
+states/Rip/node = SubResource("AnimationNodeAnimation_2hs0m")
+states/Rip/position = Vector2(722, 200)
+states/Start/position = Vector2(236, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_sweqy"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_2hs0m"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_1jxqw"), "Attack", "Rip", SubResource("AnimationNodeStateMachineTransition_dw050"), "Idle", "Rip", SubResource("AnimationNodeStateMachineTransition_b26j0")]
+
 [node name="Player" type="Node2D"]
 script = ExtResource("1_rkbax")
 base_stats = ExtResource("2_i3pqv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Appearance" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Appearance"]
 position = Vector2(0, -136)
 scale = Vector2(0.216295, 0.216295)
 texture = ExtResource("2_g1dw6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Appearance"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_sweqy")
+}
+speed_scale = 2.0
+
+[node name="AnimationTree" type="AnimationTree" parent="Appearance"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_dw050")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -32.0
@@ -31,3 +189,9 @@ position = Vector2(64, -160)
 
 [connection signal="timeout" from="CooldownTimer" to="." method="prepare_attack"]
 [connection signal="timeout" from="WarmupTimer" to="." method="attack"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sweqy")
+}
+speed_scale = 2.0
+
