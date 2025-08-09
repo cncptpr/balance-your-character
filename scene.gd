@@ -28,3 +28,5 @@ func _on_player_2_rip() -> void:
 func player_won(message: String):
 	$GameEnd/ColorRect/Label.text = message
 	$GameEnd.visible = true
+	$Player1.stop_figth()
+	$Player2.stop_figth()

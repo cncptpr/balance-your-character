@@ -26,10 +26,10 @@ flip_h = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" parent="Player2" index="3"]
+position = Vector2(-61, -164)
 scale = Vector2(-1, 1)
 
 [node name="Sword" parent="Player2/Inventory" index="0" instance=ExtResource("3_pdg6h")]
-position = Vector2(127, -2)
 
 [node name="GameEnd" type="Control" parent="."]
 visible = false

@@ -1,4 +1,6 @@
 class_name Equipment extends Node2D
 
-func use():
-	print("Used")
+@export var stats: EquipmentStats
+
+func use(apply: Callable):
+	apply.call(stats)
