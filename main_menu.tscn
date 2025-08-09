@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgb5jjsoqkkw1"]
+[gd_scene load_steps=4 format=3 uid="uid://dgb5jjsoqkkw1"]
 
 [ext_resource type="Script" uid="uid://dxp044cv0ik1q" path="res://menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://cxwk4ienbmuxe" path="res://assets/concept-art/Button.webp" id="2_7vrkn"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_06t4h"]
 
@@ -21,16 +22,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
+[node name="Sprite2D" type="Sprite2D" parent="start_balance"]
+position = Vector2(543, 282)
+scale = Vector2(0.525259, 0.525259)
+texture = ExtResource("2_7vrkn")
+
 [node name="Button" type="Button" parent="start_balance"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = -0.1
-anchor_bottom = 0.15
-offset_left = 346.0
+anchor_left = -0.2
+anchor_top = -0.55
+anchor_right = -0.2
+anchor_bottom = 0.45
+offset_left = 392.0
 offset_top = 241.0
 offset_right = 710.0
-offset_bottom = 302.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 40
 text = "START BALANCE"
+flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="credits" type="Control" parent="."]
@@ -40,18 +50,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
+[node name="Sprite2D" type="Sprite2D" parent="credits"]
+position = Vector2(541.75, 419.75)
+scale = Vector2(0.525259, 0.525259)
+texture = ExtResource("2_7vrkn")
+
 [node name="Button" type="Button" parent="credits"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.1
-anchor_top = -2.25
-anchor_right = -0.1
-anchor_bottom = -2.25
-offset_left = 352.0
-offset_top = 446.0
-offset_right = 708.0
-offset_bottom = 510.0
+anchor_left = -0.23125
+anchor_top = 2.89375
+anchor_right = -0.23125
+anchor_bottom = 3.89375
+offset_left = 392.0
+offset_top = 241.0
+offset_right = 710.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 40
 text = "credits"
+flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="end" type="Control" parent="."]
@@ -61,18 +78,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
+[node name="Sprite2D" type="Sprite2D" parent="end"]
+position = Vector2(540.75, 564.75)
+scale = Vector2(0.525259, 0.525259)
+texture = ExtResource("2_7vrkn")
+
 [node name="Button" type="Button" parent="end"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.1
-anchor_top = 0.1
-anchor_right = -0.1
-anchor_bottom = 0.1
-offset_left = 352.0
-offset_top = 446.0
-offset_right = 708.0
-offset_bottom = 510.0
-text = "close"
+anchor_left = -0.25625
+anchor_top = 6.51875
+anchor_right = -0.25625
+anchor_bottom = 7.51875
+offset_left = 392.0
+offset_top = 241.0
+offset_right = 710.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 40
+text = "exit"
+flat = true
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="start_balance/Button" to="." method="_on_button_pressed_start"]
