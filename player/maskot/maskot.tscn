@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cslx5egmkcksv"]
+
+[ext_resource type="PackedScene" uid="uid://cjeq7hygogjmc" path="res://player.tscn" id="1_6p0dp"]
+[ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="2_any5g"]
+[ext_resource type="Texture2D" uid="uid://b2pfui2gbp0yr" path="res://assets/concept-art/SK_mage1.png" id="3_bq1rj"]
+
+[sub_resource type="Resource" id="Resource_any5g"]
+script = ExtResource("2_any5g")
+damage = 0.0
+damage_mod = 1.2
+cooldown = 0.0
+cooldown_mod = 1.0
+warmup = 0.0
+warmup_mod = 1.2
+defence = 0.0
+defence_mod = 1.2
+blocked_percent = 0.0
+metadata/_custom_type_script = "uid://dwlbo8pci7g2t"
+
+[node name="Maskot" instance=ExtResource("1_6p0dp")]
+base_stats = SubResource("Resource_any5g")
+
+[node name="Sprite2D" parent="Appearance" index="0"]
+texture = ExtResource("3_bq1rj")
