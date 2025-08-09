@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjeq7hygogjmc"]
+[gd_scene load_steps=13 format=3 uid="uid://cjeq7hygogjmc"]
 
 [ext_resource type="Script" uid="uid://j366t82utj4u" path="res://player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="2_g1dw6"]
@@ -21,6 +21,19 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_onrkg"]
 resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.216295, 0.216295), Vector2(0.216295, 0.19096), Vector2(0.216295, 0.216295)]
+}
 
 [sub_resource type="Animation" id="Animation_hqtel"]
 length = 0.001
@@ -36,6 +49,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, -136)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.216295, 0.216295)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sweqy"]
 _data = {
@@ -43,6 +68,32 @@ _data = {
 &"Idle": SubResource("Animation_onrkg"),
 &"RESET": SubResource("Animation_hqtel")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_onrkg"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hqtel"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sweqy"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2hs0m"]
+advance_mode = 2
+advance_expression = "isAttacking==true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1jxqw"]
+xfade_time = 0.1
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dw050"]
+states/Attack/node = SubResource("AnimationNodeAnimation_onrkg")
+states/Attack/position = Vector2(562, 91)
+states/Idle/node = SubResource("AnimationNodeAnimation_hqtel")
+states/Idle/position = Vector2(485, 192)
+states/Start/position = Vector2(236, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_sweqy"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_2hs0m"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_1jxqw")]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_rkbax")
@@ -61,6 +112,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_sweqy")
 }
 speed_scale = 2.0
+
+[node name="AnimationTree" type="AnimationTree" parent="Appearance"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_dw050")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -32.0
