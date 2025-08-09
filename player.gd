@@ -18,12 +18,19 @@ func start_figth():
 	print(name, ": Start Figth")
 	$RoundTimer.start()
 
+func stop_figth():
+	print(name, ": Stopped Figthing")
+	$RoundTimer.stop()
+
 func attack():
 	if health == 0: return
 	
 	for node in $Inventory.get_children():
 		if node is Equipment:
-			node.use()
+			node.use(apply_equipment_stats)
+
+func apply_equipment_stats(stats: EquipmentStats):
+	deal_damage.emit(stats.damage)
 	
 func take_damage(damage: int):
 	print(name, ": Took damage ", damage)
@@ -31,5 +38,5 @@ func take_damage(damage: int):
 	if health == 0:
 		print(name, ": RIP")
 		rip.emit()
-		$Sprite2D.flip_v = true
+		self.scale.y = -1
 	$Label.text = str(health) + "/" + str(MAX_HEALTH)

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EquipmentStats" load_steps=2 format=3 uid="uid://c748o4386x8ek"]
+
+[ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="1_fuyor"]
+
+[resource]
+script = ExtResource("1_fuyor")
+damage = 5.0
+metadata/_custom_type_script = "uid://dwlbo8pci7g2t"
