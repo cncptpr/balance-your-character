@@ -18,6 +18,8 @@ var attack_stats: EquipmentStats
 func _ready() -> void:
 	animationTree.active = true
 	animationStateMachine.travel("Idle")
+	
+	if equipmentSlots == null: return
 	for equipmentScene in equipmentSlots.list():
 		var equipment = equipmentScene.instantiate()
 		if equipment is not Equipment:

@@ -8,6 +8,6 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed_fight() -> void:
-	get_tree().change_scene_to_file("res://figth_scene.tscn")
+	get_tree().change_scene_to_file("res://equipment/equipment_selection_scene.tscn")
 	print("pressed fight button")
 	pass

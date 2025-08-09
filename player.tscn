@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://j366t82utj4u" path="res://player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="2_i3pqv"]
-[ext_resource type="Script" uid="uid://ltgywyv7k6nf" path="res://equipment/EquipmentSlots.gd" id="3_hqtel"]
+[ext_resource type="Script" uid="uid://ltgywyv7k6nf" path="res://equipment/equipment_slots.gd" id="3_hqtel"]
 
 [sub_resource type="Resource" id="Resource_hqtel"]
 script = ExtResource("2_i3pqv")
