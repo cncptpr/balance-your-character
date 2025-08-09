@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://65w572820wi4"]
+
+[ext_resource type="Script" uid="uid://bo1i0lv8dti7f" path="res://equipment/equipment.gd" id="1_i2c51"]
+[ext_resource type="Resource" uid="uid://cr8x01vfq7rxl" path="res://equipment/bucket/bucket-stats.tres" id="2_s5eom"]
+
+[node name="Bucket" type="Node2D"]
+script = ExtResource("1_i2c51")
+stats = ExtResource("2_s5eom")
+metadata/_custom_type_script = "uid://bo1i0lv8dti7f"

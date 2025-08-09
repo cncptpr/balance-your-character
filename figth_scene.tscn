@@ -1,35 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://coirn3vq5h333"]
+[gd_scene load_steps=10 format=3 uid="uid://coirn3vq5h333"]
 
 [ext_resource type="Script" uid="uid://djee81mkeqvx0" path="res://scene.gd" id="1_nxogm"]
-[ext_resource type="PackedScene" uid="uid://cjeq7hygogjmc" path="res://player.tscn" id="2_3253y"]
+[ext_resource type="PackedScene" uid="uid://cslx5egmkcksv" path="res://player/maskot/maskot.tscn" id="2_exjn7"]
 [ext_resource type="PackedScene" uid="uid://gvdf1sea6l68" path="res://equipment/sword/sword.tscn" id="3_pdg6h"]
+[ext_resource type="Script" uid="uid://ltgywyv7k6nf" path="res://equipment/EquipmentSlots.gd" id="4_3jlcx"]
 [ext_resource type="PackedScene" uid="uid://02iethx8s0lv" path="res://equipment/fireball/fireball.tscn" id="4_exjn7"]
+[ext_resource type="PackedScene" uid="uid://di1qy5nkg08ky" path="res://equipment/plank/plank.tscn" id="5_nhxt3"]
+[ext_resource type="PackedScene" uid="uid://bywaln2xtvyjy" path="res://player/warrior/warrior.tscn" id="6_dbvx1"]
+
+[sub_resource type="Resource" id="Resource_e1fy6"]
+script = ExtResource("4_3jlcx")
+chest = ExtResource("5_nhxt3")
+weapon = ExtResource("3_pdg6h")
+metadata/_custom_type_script = "uid://ltgywyv7k6nf"
+
+[sub_resource type="Resource" id="Resource_58egn"]
+script = ExtResource("4_3jlcx")
+weapon = ExtResource("4_exjn7")
+metadata/_custom_type_script = "uid://ltgywyv7k6nf"
 
 [node name="FigthScene" type="Node2D"]
 script = ExtResource("1_nxogm")
-
-[node name="Player1" parent="." instance=ExtResource("2_3253y")]
-position = Vector2(365, 476)
-
-[node name="Label" parent="Player1" index="1"]
-metadata/_edit_use_anchors_ = true
-
-[node name="Fireball" parent="Player1/Inventory" index="0" instance=ExtResource("4_exjn7")]
-
-[node name="Player2" parent="." instance=ExtResource("2_3253y")]
-position = Vector2(833, 473)
-
-[node name="Sprite2D" parent="Player2" index="0"]
-flip_h = true
-
-[node name="Label" parent="Player2" index="1"]
-metadata/_edit_use_anchors_ = true
-
-[node name="Inventory" parent="Player2" index="3"]
-position = Vector2(-61, -164)
-scale = Vector2(-1, 1)
-
-[node name="Sword" parent="Player2/Inventory" index="0" instance=ExtResource("3_pdg6h")]
+player1Scene = ExtResource("2_exjn7")
+player1EquipmentSlots = SubResource("Resource_e1fy6")
+player2Scene = ExtResource("6_dbvx1")
+player2EquipmentSlots = SubResource("Resource_58egn")
 
 [node name="GameEnd" type="Control" parent="."]
 layout_mode = 3
@@ -95,11 +90,4 @@ offset_bottom = 302.0
 text = "more balance"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="deal_damage" from="Player1" to="Player2" method="take_damage"]
-[connection signal="rip" from="Player1" to="." method="_on_player_1_rip"]
-[connection signal="deal_damage" from="Player2" to="Player1" method="take_damage"]
-[connection signal="rip" from="Player2" to="." method="_on_player_2_rip"]
 [connection signal="pressed" from="GameEnd/start_balance/Button" to="." method="_on_button_pressed_next_balance"]
-
-[editable path="Player1"]
-[editable path="Player2"]

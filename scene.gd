@@ -1,35 +1,57 @@
 extends Node2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	start_figth()
-	$GameEnd.visible = false
-	pass
+@export var player1Scene: PackedScene
+@export var player1EquipmentSlots: EquipmentSlots
+@export var player1: Player
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-#etwas, dass das startet wenn scene erstellt wird
+@export var player2Scene: PackedScene
+@export var player2EquipmentSlots: EquipmentSlots
+@export var player2: Player
+
+func _ready() -> void:
+	$GameEnd.visible = false
+	if player1 == null:
+		assert(player1Scene != null)
+		player1 = player1Scene.instantiate()
+		player1.equipmentSlots = player1EquipmentSlots
+		
+	if player2 == null:
+		assert(player2Scene != null)
+		player2 = player2Scene.instantiate()
+		player2.equipmentSlots = player2EquipmentSlots
+	
+	add_child(player1)
+	player1.deal_damage.connect(player2.take_damage)
+	player1.rip.connect(player1_died)
+	player1.transform.origin = Vector2(381.0, 500.0)
+	
+	add_child(player2)
+	player2.deal_damage.connect(player1.take_damage)
+	player2.rip.connect(player2_died)
+	player2.transform.origin = Vector2(867.0, 500.0)
+	player2.flip()
+	start_figth()
+
 func start_figth() -> void:
 	print("Scene: Start Figth")
-	$Player1.start_figth()
-	$Player2.start_figth()
+	player1.start_figth()
+	player2.start_figth()
 
 func tick_round() -> void:
 	print("Attack!!!! ⚔️")
 
 
-func _on_player_1_rip() -> void:
+func player1_died() -> void:
 	player_won("Right has won")
 
 
-func _on_player_2_rip() -> void:
+func player2_died() -> void:
 	player_won("Left has won")
 	
 func player_won(label_message: String):
-	$Player1.stop_figth()
-	$Player2.stop_figth()
-	pass
+	player1.stop_figth()
+	player2.stop_figth()
+
 	var button_message: String
 	button_message = "try again"
 	button_message = "next fight"
@@ -41,4 +63,3 @@ func player_won(label_message: String):
 func _on_button_pressed_next_balance() -> void:
 	get_tree().change_scene_to_file("res://balance_screen.tscn")
 	print("pressed next button")
-	pass
