@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://qooyspnlm20q"]
+
+[ext_resource type="Script" uid="uid://dutjptnw2b6ob" path="res://cards/card.gd" id="1_nwofj"]
+[ext_resource type="Texture2D" uid="uid://fee7fff67pao" path="res://assets/concept-art/Clubs-88x124.png" id="2_4k7q8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k7q8"]
+size = Vector2(96, 128)
+
+[node name="Card" type="Node2D" groups=["dropable"]]
+script = ExtResource("1_nwofj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4k7q8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4k7q8")
+hframes = 5
+vframes = 3
+region_rect = Rect2(0, 0, 88, 124)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

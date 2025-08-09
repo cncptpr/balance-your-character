@@ -1,24 +1,19 @@
-extends Node2D
+class_name FightScene extends Node2D
 
-@export var player1Scene: PackedScene
-@export var player1EquipmentSlots: EquipmentSlots
-@export var player1: Player
-
-@export var player2Scene: PackedScene
-@export var player2EquipmentSlots: EquipmentSlots
-@export var player2: Player
+var player1: Player
+var player2: Player
 
 func _ready() -> void:
 	$GameEnd.visible = false
 	if player1 == null:
-		assert(player1Scene != null)
-		player1 = player1Scene.instantiate()
-		player1.equipmentSlots = player1EquipmentSlots
+		assert(PlayerState.player1_scene != null)
+		player1 = PlayerState.player1_scene.instantiate()
+		player1.equipment_slots = PlayerState.player1_equipment
 		
 	if player2 == null:
-		assert(player2Scene != null)
-		player2 = player2Scene.instantiate()
-		player2.equipmentSlots = player2EquipmentSlots
+		assert(PlayerState.player2_scene != null)
+		player2 = PlayerState.player2_scene.instantiate()
+		player2.equipment_slots = PlayerState.player2_equipment
 	
 	add_child(player1)
 	player1.deal_damage.connect(player2.take_damage)
@@ -65,5 +60,5 @@ func player_won(label_message: String):
 
 
 func _on_button_pressed_next_balance() -> void:
-	get_tree().change_scene_to_file("res://balance_screen.tscn")
+	get_tree().change_scene_to_file("res://equipment/equipment_selection_scene.tscn")
 	print("pressed next button")

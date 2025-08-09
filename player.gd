@@ -15,7 +15,7 @@ var health: float = max_health
 var attack_stats: EquipmentStats
 
 @export var inventory_node: NodePath
-@export var equipmentSlots: EquipmentSlots
+@export var equipment_slots: EquipmentSlots
 
 @onready var animationTree : AnimationTree = $Appearance/AnimationTree
 @onready var animationStateMachine: AnimationNodeStateMachinePlayback = animationTree["parameters/playback"]
@@ -24,7 +24,9 @@ func _ready() -> void:
 	fullname = generate_name()
 	animationTree.active = true
 	animationStateMachine.travel("Idle")
-	for equipmentScene in equipmentSlots.list():
+	
+	if equipment_slots == null: return
+	for equipmentScene in equipment_slots.list():
 		var equipment = equipmentScene.instantiate()
 		if equipment is not Equipment:
 			continue

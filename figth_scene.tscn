@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://djee81mkeqvx0" path="res://scene.gd" id="1_nxogm"]
 [ext_resource type="PackedScene" uid="uid://cslx5egmkcksv" path="res://player/maskot/maskot.tscn" id="2_exjn7"]
 [ext_resource type="PackedScene" uid="uid://gvdf1sea6l68" path="res://equipment/sword/sword.tscn" id="3_pdg6h"]
-[ext_resource type="Script" uid="uid://ltgywyv7k6nf" path="res://equipment/EquipmentSlots.gd" id="4_3jlcx"]
+[ext_resource type="Script" uid="uid://ltgywyv7k6nf" path="res://equipment/equipment_slots.gd" id="4_3jlcx"]
 [ext_resource type="PackedScene" uid="uid://02iethx8s0lv" path="res://equipment/fireball/fireball.tscn" id="4_exjn7"]
 [ext_resource type="PackedScene" uid="uid://di1qy5nkg08ky" path="res://equipment/plank/plank.tscn" id="5_nhxt3"]
 [ext_resource type="PackedScene" uid="uid://bywaln2xtvyjy" path="res://player/warrior/warrior.tscn" id="6_dbvx1"]
@@ -24,12 +24,9 @@ metadata/_custom_type_script = "uid://ltgywyv7k6nf"
 
 [node name="FigthScene" type="Node2D"]
 script = ExtResource("1_nxogm")
-player1Scene = ExtResource("2_exjn7")
-player1EquipmentSlots = SubResource("Resource_e1fy6")
-player2Scene = ExtResource("6_dbvx1")
-player2EquipmentSlots = SubResource("Resource_58egn")
 
 [node name="GameEnd" type="Control" parent="."]
+visible = false
 z_index = 10
 layout_mode = 3
 anchors_preset = 0

@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://cjeq7hygogjmc"]
+[gd_scene load_steps=19 format=3 uid="uid://cjeq7hygogjmc"]
 
 [ext_resource type="Script" uid="uid://j366t82utj4u" path="res://player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="2_i3pqv"]
-[ext_resource type="Script" uid="uid://ltgywyv7k6nf" path="res://equipment/EquipmentSlots.gd" id="3_hqtel"]
 
 [sub_resource type="Resource" id="Resource_hqtel"]
 script = ExtResource("2_i3pqv")
@@ -17,10 +16,6 @@ defence = 0.0
 defence_mod = 1.0
 blocked_percent = 0.0
 metadata/_custom_type_script = "uid://dwlbo8pci7g2t"
-
-[sub_resource type="Resource" id="Resource_sweqy"]
-script = ExtResource("3_hqtel")
-metadata/_custom_type_script = "uid://ltgywyv7k6nf"
 
 [sub_resource type="Animation" id="Animation_i3pqv"]
 resource_name = "Attack"
@@ -169,7 +164,6 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="Player" type="Node2D"]
 script = ExtResource("1_rkbax")
 base_stats = SubResource("Resource_hqtel")
-equipmentSlots = SubResource("Resource_sweqy")
 
 [node name="Appearance" type="Node2D" parent="."]
 
