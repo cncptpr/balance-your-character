@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmyb6uk4w84fs"]
+[gd_scene load_steps=3 format=3 uid="uid://cmyb6uk4w84fs"]
 
 [ext_resource type="Script" uid="uid://diequyxfe7rfo" path="res://credits.gd" id="1_nm7lk"]
+[ext_resource type="Texture2D" uid="uid://cxwk4ienbmuxe" path="res://assets/concept-art/Button.webp" id="2_c1t8d"]
 
 [node name="credits" type="Node2D"]
 script = ExtResource("1_nm7lk")
@@ -14,9 +15,9 @@ offset_bottom = 40.0
 [node name="TextEdit" type="TextEdit" parent="credit_text"]
 layout_mode = 0
 offset_left = 365.0
-offset_top = 151.0
+offset_top = 133.0
 offset_right = 724.0
-offset_bottom = 359.0
+offset_bottom = 341.0
 text = "Anna
 Vaku
 Timon
@@ -28,17 +29,31 @@ Benni
 [node name="back_to_main" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 5.0
+offset_left = -2.0
 offset_top = 9.0
-offset_right = 45.0
+offset_right = 38.0
 offset_bottom = 52.0
 
+[node name="Sprite2D" type="Sprite2D" parent="back_to_main"]
+position = Vector2(541.75, 428.75)
+scale = Vector2(0.525259, 0.525259)
+texture = ExtResource("2_c1t8d")
+
 [node name="Button" type="Button" parent="back_to_main"]
-layout_mode = 0
-offset_left = 386.0
-offset_top = 405.0
-offset_right = 671.0
-offset_bottom = 487.0
-text = "back to menu"
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.23125
+anchor_top = 3.87049
+anchor_right = -0.23125
+anchor_bottom = 3.87049
+offset_left = 392.0
+offset_top = 198.0
+offset_right = 710.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 40
+text = "back to menu
+"
+flat = true
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="back_to_main/Button" to="." method="_on_button_pressed_main_menu"]

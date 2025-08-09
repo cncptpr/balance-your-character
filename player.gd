@@ -3,6 +3,11 @@ class_name Player extends Node2D
 signal deal_damage(damage: float)
 signal rip()
 
+@export var fullname: String = "Noname"
+var surnames: Array[String] = ["Alexander", "Herbert", "Paul", "Jim", "Robert", "George", "Mia", "Lucy"]
+var lastnames: Array[String] = ["Giant", "Noisy", "Drinker", "Frightening", "Wandering Vending Machine"]
+
+
 @export var max_health: float = 100
 var health: float = max_health
 
@@ -16,6 +21,7 @@ var attack_stats: EquipmentStats
 @onready var animationStateMachine: AnimationNodeStateMachinePlayback = animationTree["parameters/playback"]
 
 func _ready() -> void:
+	fullname = generate_name()
 	animationTree.active = true
 	animationStateMachine.travel("Idle")
 	for equipmentScene in equipmentSlots.list():
@@ -26,6 +32,9 @@ func _ready() -> void:
 
 func flip():
 	$Appearance.scale.x = -1
+
+func generate_name():
+	return surnames[randi_range(0,7)] + " the " + lastnames[randi_range(0,4)]
 
 func start_figth():
 	print(name, ": Start Figth")
