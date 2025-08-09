@@ -44,7 +44,7 @@ func attack():
 	
 	var damage = int(randf_range(5, 10))
 	deal_damage.emit(damage)
-	$AnimationPlayer.play("Attack")
+	$Appearance/AnimationPlayer.play("Attack")
 	print(name, ": Attacking with damage ", damage)
 
 func take_damage(damage: int):
@@ -69,6 +69,7 @@ func take_damage(damage: int):
 	if health == 0: died()
 
 func died():
-		print(name, ": RIP")
-		rip.emit()
-		self.scale.y = -1
+	print(name, ": RIP")
+	rip.emit()
+	$Appearance/Sprite2D.flip_v = true
+	$Label.text = str(health) + "/" + str(MAX_HEALTH)

@@ -4,15 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="2_g1dw6"]
 [ext_resource type="Resource" uid="uid://xc1rshvkbyc4" path="res://player/base_player_stats.tres" id="2_i3pqv"]
 
-[sub_resource type="Animation" id="Animation_onrkg"]
-resource_name = "Idle"
-
 [sub_resource type="Animation" id="Animation_i3pqv"]
 resource_name = "Attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("Appearance/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,12 +19,15 @@ tracks/0/keys = {
 "values": [Vector2(0, -136), Vector2(448, -132), Vector2(6.00003, -139)]
 }
 
+[sub_resource type="Animation" id="Animation_onrkg"]
+resource_name = "Idle"
+
 [sub_resource type="Animation" id="Animation_hqtel"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("Appearance/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -48,10 +48,19 @@ _data = {
 script = ExtResource("1_rkbax")
 base_stats = ExtResource("2_i3pqv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Appearance" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Appearance"]
 position = Vector2(0, -136)
 scale = Vector2(0.216295, 0.216295)
 texture = ExtResource("2_g1dw6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Appearance"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_sweqy")
+}
+speed_scale = 2.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = -32.0
