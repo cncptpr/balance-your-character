@@ -1,10 +1,11 @@
 extends Node2D
 
-@export var figthScene: PackedScene
+@export var currentScene: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.add_child(figthScene.instantiate())
+	self.add_child(currentScene.instantiate())
+	print("game startup")
 	pass
 
 

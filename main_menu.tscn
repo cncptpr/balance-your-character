@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgb5jjsoqkkw1"]
+
+[ext_resource type="Script" uid="uid://dxp044cv0ik1q" path="res://menu.gd" id="1_06t4h"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_06t4h"]
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource("1_06t4h")
+
+[node name="title_game_name" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="title_game_name"]
+position = Vector2(547, 114)
+scale = Vector2(452.25, 123.75)
+texture = SubResource("PlaceholderTexture2D_06t4h")
+
+[node name="start_balance" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="start_balance"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = -0.1
+anchor_bottom = 0.15
+offset_left = 346.0
+offset_top = 241.0
+offset_right = 710.0
+offset_bottom = 302.0
+text = "START BALANCE"
+metadata/_edit_use_anchors_ = true
+
+[node name="credits" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.1
+anchor_top = -2.25
+anchor_right = -0.1
+anchor_bottom = -2.25
+offset_left = 352.0
+offset_top = 446.0
+offset_right = 708.0
+offset_bottom = 510.0
+text = "credits"
+metadata/_edit_use_anchors_ = true
+
+[node name="end" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="end"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.1
+anchor_top = 0.1
+anchor_right = -0.1
+anchor_bottom = 0.1
+offset_left = 352.0
+offset_top = 446.0
+offset_right = 708.0
+offset_bottom = 510.0
+text = "close"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="start_balance/Button" to="." method="_on_button_pressed_start"]
+[connection signal="pressed" from="credits/Button" to="." method="_on_button_pressed_credits"]
+[connection signal="pressed" from="end/Button" to="." method="_on_button_pressed_end"]

@@ -32,7 +32,6 @@ scale = Vector2(-1, 1)
 [node name="Sword" parent="Player2/Inventory" index="0" instance=ExtResource("3_pdg6h")]
 
 [node name="GameEnd" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 555.0
@@ -40,11 +39,23 @@ offset_top = 206.0
 offset_right = 595.0
 offset_bottom = 246.0
 
+[node name="screen_darken" type="ColorRect" parent="GameEnd"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = -565.0
+offset_top = -216.0
+offset_right = 607.0
+offset_bottom = 446.0
+scale = Vector2(0.997573, 1)
+color = Color(0, 0, 0, 0.141176)
+
 [node name="ColorRect" type="ColorRect" parent="GameEnd"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -95.0
+offset_top = 224.0
+offset_right = 191.0
+offset_bottom = 293.0
 scale = Vector2(0.997573, 1)
 color = Color(4.33177e-06, 0.647806, 0.0695713, 1)
 
@@ -61,27 +72,34 @@ offset_right = 60.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Drawwwwwww"
+text = "Draw"
 
-[node name="GameStart" type="Control" parent="."]
+[node name="start_balance" type="Control" parent="GameEnd"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="GameStart"]
-layout_mode = 0
-offset_left = 573.0
-offset_top = 196.0
-offset_right = 664.0
-offset_bottom = 227.0
-text = "Start Gane"
+[node name="Button" type="Button" parent="GameEnd/start_balance"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -11.85
+anchor_top = 1.9
+anchor_right = -11.85
+anchor_bottom = 2.05
+offset_left = 346.0
+offset_top = 241.0
+offset_right = 710.0
+offset_bottom = 302.0
+text = "more balance"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="deal_damage" from="Player1" to="Player2" method="take_damage"]
 [connection signal="rip" from="Player1" to="." method="_on_player_1_rip"]
 [connection signal="deal_damage" from="Player2" to="Player1" method="take_damage"]
 [connection signal="rip" from="Player2" to="." method="_on_player_2_rip"]
-[connection signal="pressed" from="GameStart/Button" to="." method="start_figth"]
+[connection signal="pressed" from="GameEnd/start_balance/Button" to="." method="_on_button_pressed_next_balance"]
 
 [editable path="Player1"]
 [editable path="Player2"]

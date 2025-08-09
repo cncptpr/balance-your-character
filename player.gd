@@ -30,7 +30,7 @@ func attack():
 			node.use(apply_equipment_stats)
 
 func apply_equipment_stats(stats: EquipmentStats):
-	deal_damage.emit(stats.damage)
+	deal_damage.emit(stats.damage) #emit ist signal
 	
 func take_damage(damage: int):
 	print(name, ": Took damage ", damage)
