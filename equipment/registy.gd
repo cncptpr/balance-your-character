@@ -19,7 +19,24 @@ var weapons: Array[PackedScene] = [
 ]:
 	set(_new): assert(false)
 	
-var armor: Array[PackedScene] = [
+var headgear: Array[PackedScene] = [
+	load(bucket), 
+]:
+	set(_new): assert(false)
+	
+var chest: Array[PackedScene] = [
 	load(plank), 
+]:
+	set(_new): assert(false)
+	
+var pants: Array[PackedScene] = [
+]:
+	set(_new): assert(false)
+	
+var boots: Array[PackedScene] = [
+]:
+	set(_new): assert(false)
+	
+var trinkets: Array[PackedScene] = [
 ]:
 	set(_new): assert(false)

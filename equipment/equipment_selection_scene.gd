@@ -16,11 +16,11 @@ func pick_different(input: Array[PackedScene], count: int) -> Array[PackedScene]
 
 func _ready() -> void:
 	var player1: Player = PlayerState.player1_scene.instantiate()
-	player1.equipmentSlots = PlayerState.player1_equiplment
+	player1.equipment_slots = PlayerState.player1_equipment
 	$PlayerPos1.add_child(player1)
 	
 	var player2: Player = PlayerState.player2_scene.instantiate()
-	player2.equipmentSlots = PlayerState.player2_equiplment
+	player2.equipment_slots = PlayerState.player2_equipment
 	player2.flip()
 	$PlayerPos2.add_child(player2)
 	
@@ -41,3 +41,14 @@ func _ready() -> void:
 	card3.set_pos_index(2)
 	$CardPos3.add_child(card3)
 		
+
+func next() -> void:
+	var card1 = $PlayerPos1.card
+	if card1 != null:
+		PlayerState.player1_equipment.equip(card1.equipment_scene)
+		
+	var card2 = $PlayerPos2.card
+	if card2 != null:
+		PlayerState.player2_equipment.equip(card2.equipment_scene)
+		
+	get_tree().change_scene_to_file("res://figth_scene.tscn")

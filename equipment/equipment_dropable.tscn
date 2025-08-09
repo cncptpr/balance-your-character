@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://duw3n735ajun4"]
+[gd_scene load_steps=3 format=3 uid="uid://duw3n735ajun4"]
+
+[ext_resource type="Script" uid="uid://bwjqasn1f5rba" path="res://equipment/equipment_dropable.gd" id="1_jbnks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcc0y"]
 size = Vector2(128, 256)
 
 [node name="PlayerPos1" type="StaticBody2D" groups=["dropable"]]
+script = ExtResource("1_jbnks")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -128)

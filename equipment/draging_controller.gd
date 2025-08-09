@@ -28,6 +28,7 @@ func stop_dragging(dragable: Node2D):
 	var tween = get_tree().create_tween()
 	if dragable.is_inside_dropable:
 		tween.tween_property(dragable, "global_position", dragable.dropable.global_position, 0.2).set_ease(Tween.EASE_OUT)
+		dragable.dropable.card = dragable
 	else:
 		tween.tween_property(dragable, "global_position", dragable.inital_position, 0.2).set_ease(Tween.EASE_OUT)
 	
