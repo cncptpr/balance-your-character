@@ -4,5 +4,12 @@
 
 [resource]
 script = ExtResource("1_ivdwk")
-damage = 10.0
+damage = 8.0
+damage_mod = 1.0
+cooldown = 1.0
+cooldown_mod = 1.0
+warmup = 0.3
+warmup_mod = 1.0
+defence = 0.0
+defence_mod = 1.0
 metadata/_custom_type_script = "uid://dwlbo8pci7g2t"

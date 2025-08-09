@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjeq7hygogjmc"]
+[gd_scene load_steps=4 format=3 uid="uid://cjeq7hygogjmc"]
 
 [ext_resource type="Script" uid="uid://j366t82utj4u" path="res://player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="2_g1dw6"]
+[ext_resource type="Resource" uid="uid://xc1rshvkbyc4" path="res://player/base_player_stats.tres" id="2_i3pqv"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_rkbax")
+base_stats = ExtResource("2_i3pqv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -136)
@@ -18,9 +20,14 @@ offset_right = 30.0
 offset_bottom = -289.0
 text = "100/100"
 
-[node name="RoundTimer" type="Timer" parent="."]
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="WarmupTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Inventory" type="Node2D" parent="."]
 position = Vector2(64, -160)
 
-[connection signal="timeout" from="RoundTimer" to="." method="attack"]
+[connection signal="timeout" from="CooldownTimer" to="." method="prepare_attack"]
+[connection signal="timeout" from="WarmupTimer" to="." method="attack"]

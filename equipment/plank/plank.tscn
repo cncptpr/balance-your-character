@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://di1qy5nkg08ky"]
+
+[ext_resource type="Script" uid="uid://cfg8otqgyq3qw" path="res://equipment/plank/plank.gd" id="1_a0y0x"]
+[ext_resource type="Resource" uid="uid://clmwoinyjw6o0" path="res://equipment/plank/plank-stats.tres" id="2_pdt0b"]
+
+[node name="Plank" type="Node2D"]
+script = ExtResource("1_a0y0x")
+stats = ExtResource("2_pdt0b")
+metadata/_custom_type_script = "uid://bo1i0lv8dti7f"

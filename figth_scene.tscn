@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://coirn3vq5h333"]
+[gd_scene load_steps=6 format=3 uid="uid://coirn3vq5h333"]
 
 [ext_resource type="Script" uid="uid://djee81mkeqvx0" path="res://scene.gd" id="1_nxogm"]
 [ext_resource type="PackedScene" uid="uid://cjeq7hygogjmc" path="res://player.tscn" id="2_3253y"]
 [ext_resource type="PackedScene" uid="uid://gvdf1sea6l68" path="res://equipment/sword/sword.tscn" id="3_pdg6h"]
 [ext_resource type="PackedScene" uid="uid://02iethx8s0lv" path="res://equipment/fireball/fireball.tscn" id="4_exjn7"]
+[ext_resource type="PackedScene" uid="uid://di1qy5nkg08ky" path="res://equipment/plank/plank.tscn" id="5_nhxt3"]
 
 [node name="FigthScene" type="Node2D"]
 script = ExtResource("1_nxogm")
@@ -25,11 +26,13 @@ flip_h = true
 [node name="Label" parent="Player2" index="1"]
 metadata/_edit_use_anchors_ = true
 
-[node name="Inventory" parent="Player2" index="3"]
+[node name="Inventory" parent="Player2" index="4"]
 position = Vector2(-61, -164)
 scale = Vector2(-1, 1)
 
 [node name="Sword" parent="Player2/Inventory" index="0" instance=ExtResource("3_pdg6h")]
+
+[node name="Plank" parent="Player2/Inventory" index="1" instance=ExtResource("5_nhxt3")]
 
 [node name="GameEnd" type="Control" parent="."]
 visible = false
@@ -75,7 +78,7 @@ offset_left = 573.0
 offset_top = 196.0
 offset_right = 664.0
 offset_bottom = 227.0
-text = "Start Gane"
+text = "Start Game"
 
 [connection signal="deal_damage" from="Player1" to="Player2" method="take_damage"]
 [connection signal="rip" from="Player1" to="." method="_on_player_1_rip"]

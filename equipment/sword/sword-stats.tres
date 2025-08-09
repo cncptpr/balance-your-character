@@ -5,4 +5,11 @@
 [resource]
 script = ExtResource("1_fuyor")
 damage = 5.0
+damage_mod = 1.0
+cooldown = 0.5
+cooldown_mod = 1.0
+warmup = 0.2
+warmup_mod = 1.0
+defence = 0.0
+defence_mod = 1.0
 metadata/_custom_type_script = "uid://dwlbo8pci7g2t"
