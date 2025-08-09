@@ -12,10 +12,12 @@ script = ExtResource("1_nxogm")
 [node name="Player1" parent="." instance=ExtResource("2_3253y")]
 position = Vector2(365, 476)
 
+[node name="Sword" parent="Player1/Appearance/Sprite2D/Inventory" index="0" instance=ExtResource("3_pdg6h")]
+
+[node name="Plank" parent="Player1/Appearance/Sprite2D/Inventory" index="1" instance=ExtResource("5_nhxt3")]
+
 [node name="Label" parent="Player1" index="1"]
 metadata/_edit_use_anchors_ = true
-
-[node name="Fireball" parent="Player1/Inventory" index="0" instance=ExtResource("4_exjn7")]
 
 [node name="Player2" parent="." instance=ExtResource("2_3253y")]
 position = Vector2(833, 473)
@@ -23,16 +25,10 @@ position = Vector2(833, 473)
 [node name="Appearance" parent="Player2" index="0"]
 scale = Vector2(-1, 1)
 
+[node name="Fireball" parent="Player2/Appearance/Sprite2D/Inventory" index="0" instance=ExtResource("4_exjn7")]
+
 [node name="Label" parent="Player2" index="1"]
 metadata/_edit_use_anchors_ = true
-
-[node name="Inventory" parent="Player2" index="4"]
-position = Vector2(-61, -164)
-scale = Vector2(-1, 1)
-
-[node name="Sword" parent="Player2/Inventory" index="0" instance=ExtResource("3_pdg6h")]
-
-[node name="Plank" parent="Player2/Inventory" index="1" instance=ExtResource("5_nhxt3")]
 
 [node name="GameEnd" type="Control" parent="."]
 visible = false
