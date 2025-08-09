@@ -1,42 +1,70 @@
 extends Node2D
 
-signal deal_damage(damage: int)
+signal deal_damage(damage: float)
 signal rip()
 
-const MAX_HEALTH: int = 100
-var health: int = MAX_HEALTH
+@export var max_health: float = 100
+var health: float = max_health
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+@export var base_stats: EquipmentStats
+var attack_stats: EquipmentStats
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
 func start_figth():
 	print(name, ": Start Figth")
-	$RoundTimer.start()
+	prepare_attack()
 
 func stop_figth():
+	$WarmupTimer.paused = true
+	$CooldownTimer.paused = true
 	print(name, ": Stopped Figthing")
-	$RoundTimer.stop()
 
-func attack():
+func prepare_attack() -> void:
 	if health == 0: return
+	
+	attack_stats = EquipmentStats.new()
+	attack_stats.apply_stats(base_stats)
+	
+	print(name, ": Using Equipment")
 	
 	for node in $Inventory.get_children():
 		if node is Equipment:
-			node.use(apply_equipment_stats)
+			var stats = node.use()
+			attack_stats.apply_stats(stats)
+	attack_stats.apply_mods()
+	
+	$WarmupTimer.start(attack_stats.warmup)
 
-func apply_equipment_stats(stats: EquipmentStats):
-	deal_damage.emit(stats.damage)
+func attack():
+	if health == 0: return
+	print(name, ": Attacking with ", attack_stats.damage, " Damage")
+	
+	deal_damage.emit(attack_stats.damage)
+	
+	$CooldownTimer.start(attack_stats.cooldown)
+	
 	
 func take_damage(damage: int):
-	print(name, ": Took damage ", damage)
-	health = move_toward(health, 0, damage)
-	if health == 0:
+	var defend_stats = EquipmentStats.new()
+	defend_stats.apply_stats(base_stats)
+	
+	for node in $Inventory.get_children():
+		if node is Equipment:
+			var stats = node.defend()
+			defend_stats.apply_stats(stats)
+	defend_stats.apply_mods()
+	
+	var damage_taken = damage * (1 - defend_stats.blocked_percent) - defend_stats.defence
+	
+	print(name, ": Got attacked with ", damage, " damage, ",
+		defend_stats.defence," defended, ", 
+		damage_taken, " taken.")
+	
+	health = move_toward(health, 0, damage_taken)
+	$Label.text = str(round(health)) + "/" + str(round(max_health))
+	
+	if health == 0: died()
+
+func died():
 		print(name, ": RIP")
 		rip.emit()
 		self.scale.y = -1
-	$Label.text = str(health) + "/" + str(MAX_HEALTH)

@@ -1,5 +1,5 @@
 extends Equipment
 
-func use(apply: Callable):
+func use() -> EquipmentStats:
 	print("Fireballlll")
-	apply.call(stats)
+	return stats
