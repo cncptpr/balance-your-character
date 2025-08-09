@@ -24,7 +24,9 @@ func _ready() -> void:
 	player2.deal_damage.connect(player1.take_damage)
 	player2.rip.connect(player2_died)
 	player2.transform.origin = Vector2(867.0, 500.0)
+	
 	player2.flip()
+	
 	start_figth()
 
 func start_figth() -> void:
@@ -37,22 +39,24 @@ func tick_round() -> void:
 
 
 func player1_died() -> void:
-	player_won("Right has won")
+	player_won(player1.fullname + " has won")
 
 
 func player2_died() -> void:
-	player_won("Left has won")
+	player_won(player2.fullname + " has won")
 	
 func player_won(label_message: String):
 	player1.stop_figth()
 	player2.stop_figth()
 
 	var button_message: String
+	var score: int = (100-abs((player1.health*100/player1.max_health)-(player2.health*100/player2.max_health)))
 	button_message = "try again"
 	button_message = "next fight"
-	$GameEnd/ColorRect/Label.text = label_message
+	$GameEnd/wintext.text = label_message
 	$GameEnd/start_balance/Button.text = button_message
 	$GameEnd.visible = true
+	$GameEnd/Label.text = "Score: " + str(score)
 
 
 func _on_button_pressed_next_balance() -> void:

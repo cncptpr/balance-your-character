@@ -40,7 +40,6 @@ func _ready() -> void:
 	card3.equipment_scene = equipment_on_cards[2]
 	card3.set_pos_index(2)
 	$CardPos3.add_child(card3)
-		
 
 func next() -> void:
 	var card1 = $PlayerPos1.card

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0nhskn2dkhhk"]
+[gd_scene load_steps=4 format=3 uid="uid://d0nhskn2dkhhk"]
 
 [ext_resource type="Script" uid="uid://do1f5k0ri6sjs" path="res://balance_screen.gd" id="1_icfci"]
+[ext_resource type="Texture2D" uid="uid://csbvgr1fsaea0" path="res://assets/concept-art/redButton.webp" id="2_eja8j"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4sabo"]
 
@@ -10,8 +11,8 @@ script = ExtResource("1_icfci")
 [node name="title" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="title"]
-position = Vector2(155.969, 260.531)
-scale = Vector2(236.062, 462.938)
+position = Vector2(201.969, 253)
+scale = Vector2(330.062, 436)
 texture = SubResource("PlaceholderTexture2D_4sabo")
 
 [node name="play again" type="Control" parent="."]
@@ -21,18 +22,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
+[node name="Sprite2D" type="Sprite2D" parent="play again"]
+position = Vector2(196.75, 567.75)
+scale = Vector2(0.525259, 0.525259)
+texture = ExtResource("2_eja8j")
+
 [node name="Button" type="Button" parent="play again"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -1.852
-anchor_top = 3.11
-anchor_right = -1.852
-anchor_bottom = 3.11
-offset_left = 101.08
-offset_top = 434.6
-offset_right = 357.08
-offset_bottom = 498.6
+anchor_left = -8.85625
+anchor_top = 6.59375
+anchor_right = -8.85625
+anchor_bottom = 7.59375
+offset_left = 392.0
+offset_top = 241.0
+offset_right = 710.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 40
 text = "FIGHT"
+flat = true
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="play again/Button" to="." method="_on_button_pressed_fight"]
