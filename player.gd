@@ -33,7 +33,7 @@ func prepare_attack() -> void:
 	
 	print(name, ": Using Equipment")
 	
-	for node in $Inventory.get_children():
+	for node in $Appearance/Sprite2D/Inventory.get_children():
 		if node is Equipment:
 			var stats = node.use()
 			attack_stats.apply_stats(stats)
@@ -55,7 +55,7 @@ func take_damage(damage: int):
 	var defend_stats = EquipmentStats.new()
 	defend_stats.apply_stats(base_stats)
 	
-	for node in $Inventory.get_children():
+	for node in $Appearance/Sprite2D/Inventory.get_children():
 		if node is Equipment:
 			var stats = node.defend()
 			defend_stats.apply_stats(stats)
