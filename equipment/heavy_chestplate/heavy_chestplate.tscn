@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2athvo8x7a8p"]
+
+[ext_resource type="Script" uid="uid://bo1i0lv8dti7f" path="res://equipment/equipment.gd" id="1_cllsl"]
+[ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="2_t2448"]
+[ext_resource type="Texture2D" uid="uid://by5hi8ok5l3lc" path="res://assets/equipment/CL_HeavyProtector.png" id="3_s31nq"]
+
+[sub_resource type="Resource" id="Resource_iigfx"]
+script = ExtResource("2_t2448")
+damage = 0.0
+damage_mod = 1.15
+cooldown = 0.0
+cooldown_mod = 0.97
+warmup = 0.0
+warmup_mod = 1.0
+defence = 25.0
+defence_mod = 1.0
+blocked_percent = 0.0
+health = 0.0
+health_mod = 1.0
+metadata/_custom_type_script = "uid://dwlbo8pci7g2t"
+
+[node name="HeavyChestplate" type="Node2D"]
+script = ExtResource("1_cllsl")
+stats = SubResource("Resource_iigfx")
+title = "Heavy Protector"
+desciption = "Feel like a P.E.K.K.A. with this one!"
+metadata/_custom_type_script = "uid://bo1i0lv8dti7f"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_s31nq")

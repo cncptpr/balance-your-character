@@ -26,11 +26,16 @@ func _ready() -> void:
 	animationStateMachine.travel("Idle")
 	
 	if equipment_slots == null: return
+	var collected_stats = EquipmentStats.new()
 	for equipmentScene in equipment_slots.list():
 		var equipment = equipmentScene.instantiate()
 		if equipment is not Equipment:
 			continue
 		$Appearance/Sprite2D/Inventory.add_child(equipment)
+		collected_stats.apply_stats(equipment.defend())
+	collected_stats.apply_mods()
+	max_health = collected_stats.health
+	health = max_health
 
 func flip():
 	$Appearance.scale.x = -1

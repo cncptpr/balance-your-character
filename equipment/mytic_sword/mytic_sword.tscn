@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cym22u44gh6l4"]
+
+[ext_resource type="Script" uid="uid://bo1i0lv8dti7f" path="res://equipment/equipment.gd" id="1_76ocb"]
+[ext_resource type="Texture2D" uid="uid://csomhlrs4586d" path="res://assets/equipment/F_MysticSword.png" id="2_pp8oo"]
+[ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="2_qblsi"]
+
+[sub_resource type="Resource" id="Resource_j4lqd"]
+script = ExtResource("2_qblsi")
+damage = 10.0
+damage_mod = 1.0
+cooldown = 0.0
+cooldown_mod = 0.9
+warmup = 0.0
+warmup_mod = 1.0
+defence = 0.0
+defence_mod = 1.0
+blocked_percent = 0.0
+health = 0.0
+health_mod = 0.95
+metadata/_custom_type_script = "uid://dwlbo8pci7g2t"
+
+[node name="MyticSword" type="Node2D"]
+script = ExtResource("1_76ocb")
+stats = SubResource("Resource_j4lqd")
+title = "Mystic sword"
+desciption = "A fast weapon for skilled fighters"
+metadata/_custom_type_script = "uid://bo1i0lv8dti7f"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_pp8oo")

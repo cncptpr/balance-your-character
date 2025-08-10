@@ -6,7 +6,7 @@ class_name StatsBar extends Control
 		color_points(stat_to_points(value))
 		stat = value
 
-var pointNodes: Array[ColorRect]
+var pointNodes: Array[Sprite2D]
 
 func stat_to_points(x: float) -> int:
 	var value = (-1.0 / (pow(2.0, (0.2 * abs(x) - 2.3)))) + 5
@@ -30,7 +30,7 @@ func _ready() -> void:
 func color_points(points: int) -> void:
 	for i in range(pointNodes.size()):
 		if i < points:
-			pointNodes[i].color = Color.GREEN
+			pointNodes[i].color
 			pointNodes[i].visible = true
 		elif i < -points:
 			pointNodes[i].color = Color.RED

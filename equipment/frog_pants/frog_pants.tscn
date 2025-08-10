@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj11ldtqyw2m0"]
+
+[ext_resource type="Script" uid="uid://bo1i0lv8dti7f" path="res://equipment/equipment.gd" id="1_s838i"]
+[ext_resource type="Texture2D" uid="uid://8o2o4pq4rcu0" path="res://assets/equipment/CL_FrogSkinPants.png" id="2_8cm11"]
+[ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="2_gltuv"]
+
+[sub_resource type="Resource" id="Resource_m2ou1"]
+script = ExtResource("2_gltuv")
+damage = 0.0
+damage_mod = 1.0
+cooldown = 0.0
+cooldown_mod = 1.05
+warmup = 0.0
+warmup_mod = 1.0
+defence = 0.0
+defence_mod = 0.9
+blocked_percent = 0.0
+health = -10.0
+health_mod = 1.0
+metadata/_custom_type_script = "uid://dwlbo8pci7g2t"
+
+[node name="FrogPants" type="Node2D"]
+script = ExtResource("1_s838i")
+stats = SubResource("Resource_m2ou1")
+title = "Frog Skin Legpiece"
+desciption = "Quak? Quak."
+metadata/_custom_type_script = "uid://bo1i0lv8dti7f"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_8cm11")
