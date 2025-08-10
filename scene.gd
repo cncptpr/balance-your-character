@@ -3,6 +3,9 @@ class_name FightScene extends Node2D
 var player1: Player
 var player2: Player
 
+var button_message: String
+var score: int
+
 func _ready() -> void:
 	$GameEnd.visible = false
 	if player1 == null:
@@ -26,7 +29,6 @@ func _ready() -> void:
 	player2.transform.origin = Vector2(867.0, 500.0)
 	
 	player2.flip()
-	
 	start_figth()
 
 func start_figth() -> void:
@@ -49,8 +51,11 @@ func player_won(label_message: String):
 	player1.stop_figth()
 	player2.stop_figth()
 
-	var button_message: String
-	var score: int = (100-abs((player1.health*100/player1.max_health)-(player2.health*100/player2.max_health)))
+
+	score = (100-abs((player1.health*100/player1.max_health)-(player2.health*100/player2.max_health)))
+	Globalvar.GlobalScore += score
+	print(">> Global Score: " + str(Globalvar.GlobalScore))
+	
 	button_message = "try again"
 	button_message = "next fight"
 	$GameEnd/wintext.text = label_message
@@ -62,3 +67,6 @@ func player_won(label_message: String):
 func _on_button_pressed_next_balance() -> void:
 	get_tree().change_scene_to_file("res://equipment/equipment_selection_scene.tscn")
 	print("pressed next button")
+
+func _on_button_mouse_touched_button_again() -> void:
+	$ButtonSound.play()

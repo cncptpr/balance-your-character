@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://cjeq7hygogjmc"]
+[gd_scene load_steps=22 format=3 uid="uid://cjeq7hygogjmc"]
 
 [ext_resource type="Script" uid="uid://j366t82utj4u" path="res://player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://ltgywyv7k6nf" path="res://equipment/EquipmentSlots.gd" id="3_hqtel"]
+[ext_resource type="Texture2D" uid="uid://31jgub1plbyn" path="res://assets/Players/CL_TankArm.webp" id="5_sweqy"]
 
 [sub_resource type="Resource" id="Resource_hqtel"]
 script = ExtResource("2_i3pqv")
@@ -170,6 +172,7 @@ base_stats = SubResource("Resource_hqtel")
 [node name="Appearance" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Appearance"]
+z_index = -6
 position = Vector2(0, -136)
 scale = Vector2(0.216295, 0.216295)
 texture = ExtResource("2_g1dw6")
@@ -178,6 +181,11 @@ flip_h = true
 [node name="Inventory" type="Node2D" parent="Appearance/Sprite2D"]
 position = Vector2(295.892, -122.662)
 scale = Vector2(4.62332, 5.11093)
+
+[node name="arm" type="Sprite2D" parent="Appearance/Sprite2D"]
+z_index = -7
+scale = Vector2(-1, 1)
+texture = ExtResource("5_sweqy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Appearance"]
 root_node = NodePath("../..")

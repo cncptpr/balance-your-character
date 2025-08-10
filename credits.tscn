@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmyb6uk4w84fs"]
+[gd_scene load_steps=6 format=3 uid="uid://cmyb6uk4w84fs"]
 
 [ext_resource type="Script" uid="uid://diequyxfe7rfo" path="res://credits.gd" id="1_nm7lk"]
-[ext_resource type="Texture2D" uid="uid://cxwk4ienbmuxe" path="res://assets/concept-art/Button.webp" id="2_c1t8d"]
+[ext_resource type="Texture2D" uid="uid://cxwk4ienbmuxe" path="res://assets/Menu/Button.webp" id="2_c1t8d"]
+[ext_resource type="AudioStream" uid="uid://001nhr1rcod7" path="res://assets/Menu/Click.wav" id="3_g4wvt"]
+[ext_resource type="Texture2D" uid="uid://cr4uh68pkcd52" path="res://assets/Menu/Menu_Backdrop.webp" id="4_j6beo"]
+[ext_resource type="Texture2D" uid="uid://ckwepedfa2kls" path="res://assets/Menu/Menu_Backdrop2.webp" id="5_4av4j"]
 
 [node name="credits" type="Node2D"]
 script = ExtResource("1_nm7lk")
@@ -13,17 +16,28 @@ offset_right = 3.0
 offset_bottom = 40.0
 
 [node name="TextEdit" type="TextEdit" parent="credit_text"]
+z_index = -12
 layout_mode = 0
-offset_left = 365.0
-offset_top = 133.0
-offset_right = 724.0
-offset_bottom = 341.0
-text = "Anna
+offset_left = 392.0
+offset_top = 164.0
+offset_right = 751.0
+offset_bottom = 372.0
+text = "Visuals:
+Anna
 Vaku
-Timon
-Gabriel
 Simon
 Benni
+
+Music:
+Dilara
+Vaku
+
+Code:
+Anna
+Timon
+Gabriel
+
+
 "
 
 [node name="back_to_main" type="Control" parent="."]
@@ -35,7 +49,7 @@ offset_right = 38.0
 offset_bottom = 52.0
 
 [node name="Sprite2D" type="Sprite2D" parent="back_to_main"]
-position = Vector2(541.75, 428.75)
+position = Vector2(568.75, 428.75)
 scale = Vector2(0.525259, 0.525259)
 texture = ExtResource("2_c1t8d")
 
@@ -46,14 +60,33 @@ anchor_left = -0.23125
 anchor_top = 3.87049
 anchor_right = -0.23125
 anchor_bottom = 3.87049
-offset_left = 392.0
+offset_left = 419.0
 offset_top = 198.0
-offset_right = 710.0
+offset_right = 737.0
 offset_bottom = 314.0
 theme_override_font_sizes/font_size = 40
 text = "back to menu
 "
 flat = true
-metadata/_edit_use_anchors_ = true
 
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g4wvt")
+volume_db = -29.884
+pitch_scale = 0.5
+max_polyphony = 3
+playback_type = 1
+
+[node name="bg" type="Node2D" parent="."]
+
+[node name="MenuBackdrop" type="Sprite2D" parent="bg"]
+z_index = -13
+position = Vector2(579, 322)
+texture = ExtResource("4_j6beo")
+
+[node name="MenuBackdrop2" type="Sprite2D" parent="."]
+z_index = -11
+position = Vector2(579, 500)
+texture = ExtResource("5_4av4j")
+
+[connection signal="mouse_entered" from="back_to_main/Button" to="." method="_on_button_mouse_touched_button_exit"]
 [connection signal="pressed" from="back_to_main/Button" to="." method="_on_button_pressed_main_menu"]
