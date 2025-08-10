@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed_start() -> void:
-	get_tree().change_scene_to_file("res://balance_screen.tscn")
+	get_tree().change_scene_to_file("res://equipment/equipment_selection_scene.tscn")
 	print("pressed start button")
 	pass
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://von0orupifrw"]
+
+[ext_resource type="Script" uid="uid://bo1i0lv8dti7f" path="res://equipment/equipment.gd" id="1_papac"]
+[ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="2_yh0rx"]
+[ext_resource type="Texture2D" uid="uid://dh6d5dqt87j0c" path="res://assets/equipment/CL_LightningCoatedBoots.png" id="3_jnuxa"]
+
+[sub_resource type="Resource" id="Resource_jnuxa"]
+script = ExtResource("2_yh0rx")
+damage = 0.0
+damage_mod = 1.0
+cooldown = 0.0
+cooldown_mod = 0.85
+warmup = 0.0
+warmup_mod = 1.0
+defence = 10.0
+defence_mod = 1.0
+blocked_percent = 0.0
+health = 0.0
+health_mod = 1.0
+metadata/_custom_type_script = "uid://dwlbo8pci7g2t"
+
+[node name="LightningCoatedBoots" type="Node2D"]
+script = ExtResource("1_papac")
+stats = SubResource("Resource_jnuxa")
+title = "Lightning Coated Boots"
+desciption = "Feel the bursts of lightning go up your Legs"
+metadata/_custom_type_script = "uid://bo1i0lv8dti7f"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_jnuxa")

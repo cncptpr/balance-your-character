@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://qg3ljcb1nhnb"]
+
+[ext_resource type="Script" uid="uid://bo1i0lv8dti7f" path="res://equipment/equipment.gd" id="1_vijss"]
+[ext_resource type="Texture2D" uid="uid://5avumwptcwnf" path="res://assets/equipment/CL_CarnevalWizardHead.png" id="2_f3wud"]
+[ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="2_jnw7h"]
+
+[sub_resource type="Resource" id="Resource_fhycf"]
+script = ExtResource("2_jnw7h")
+damage = 0.0
+damage_mod = 0.9
+cooldown = 0.0
+cooldown_mod = 0.95
+warmup = 0.0
+warmup_mod = 1.0
+defence = 0.0
+defence_mod = 0.95
+blocked_percent = 0.0
+health = 0.0
+health_mod = 1.0
+metadata/_custom_type_script = "uid://dwlbo8pci7g2t"
+
+[node name="CarnevalWizzardHead" type="Node2D"]
+script = ExtResource("1_vijss")
+stats = SubResource("Resource_fhycf")
+title = "Carnival Wizard Hat"
+desciption = "A silly hat from a fun place but is it worth it wearing itin battle"
+metadata/_custom_type_script = "uid://bo1i0lv8dti7f"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_f3wud")

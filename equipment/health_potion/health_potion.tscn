@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dae5g5lmr42ce"]
+
+[ext_resource type="Script" uid="uid://bo1i0lv8dti7f" path="res://equipment/equipment.gd" id="1_y4v3v"]
+[ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="2_kxmav"]
+[ext_resource type="Texture2D" uid="uid://dyhcei4nqafdp" path="res://assets/equipment/F_HealthPotion.png" id="3_hniba"]
+
+[sub_resource type="Resource" id="Resource_ntgwk"]
+script = ExtResource("2_kxmav")
+damage = 0.0
+damage_mod = 1.0
+cooldown = 0.0
+cooldown_mod = 1.0
+warmup = 0.0
+warmup_mod = 1.0
+defence = 0.0
+defence_mod = 1.0
+blocked_percent = 0.0
+health = 20.0
+health_mod = 1.0
+metadata/_custom_type_script = "uid://dwlbo8pci7g2t"
+
+[node name="HealthPotion" type="Node2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_y4v3v")
+stats = SubResource("Resource_ntgwk")
+metadata/_custom_type_script = "uid://bo1i0lv8dti7f"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_hniba")

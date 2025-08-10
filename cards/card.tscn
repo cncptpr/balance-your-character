@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://qooyspnlm20q"]
+
+[ext_resource type="Script" uid="uid://dutjptnw2b6ob" path="res://cards/card.gd" id="1_nwofj"]
+[ext_resource type="Texture2D" uid="uid://c2454krks5oqr" path="res://assets/equipment/F_Card.png" id="2_nwofj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k7q8"]
+size = Vector2(108, 150)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4k7q8"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nwofj"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+
+[node name="Card" type="Node2D" groups=["dropable"]]
+position = Vector2(48, 64)
+script = ExtResource("1_nwofj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, 11)
+shape = SubResource("RectangleShape2D_4k7q8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 10)
+scale = Vector2(0.1, 0.089)
+texture = ExtResource("2_nwofj")
+region_rect = Rect2(0, 0, 88, 124)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -38.0
+offset_top = -59.0
+offset_right = 2.0
+offset_bottom = -36.0
+label_settings = SubResource("LabelSettings_4k7q8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -37.0
+offset_top = 28.0
+offset_right = 52.0
+offset_bottom = 78.0
+label_settings = SubResource("LabelSettings_nwofj")
+autowrap_mode = 3
+
+[node name="Pos" type="Node2D" parent="."]
+position = Vector2(7, 1)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

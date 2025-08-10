@@ -14,6 +14,9 @@ class_name EquipmentStats extends Resource
 
 @export var blocked_percent: float = 0.0
 
+@export var health: float = 0.0
+@export var health_mod: float = 1.0
+
 func apply_stats(stats: EquipmentStats):
 	self.damage += stats.damage
 	self.damage_mod *= stats.damage_mod
@@ -29,8 +32,12 @@ func apply_stats(stats: EquipmentStats):
 	
 	self.blocked_percent += stats.blocked_percent
 	
+	self.health += stats.health
+	self.health_mod *= stats.health_mod
+	
 func apply_mods():
 	self.damage *= self.damage_mod
 	self.cooldown *= self.cooldown_mod
 	self.warmup *= self.warmup_mod
 	self.defence *= self.defence_mod
+	self.health *= self.health_mod
