@@ -28,17 +28,15 @@ func _ready() -> void:
 	color_points(stat_to_points(stat))
 	
 func color_points(points: int) -> void:
+	if pointNodes.size() == 0: return
 	for i in range(pointNodes.size()):
 		if i < points:
-			pointNodes[i].color
 			pointNodes[i].visible = true
 		elif i < -points:
-			pointNodes[i].color = Color.RED
 			pointNodes[i].visible = true
 		else:
 			pointNodes[i].visible = false
 	if points == 0:
-		pointNodes[0].color = Color.GRAY
 		pointNodes[0].visible = true
 		
 		

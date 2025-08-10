@@ -27,6 +27,7 @@ func _ready() -> void:
 	
 	if equipment_slots == null: return
 	var collected_stats = EquipmentStats.new()
+	collected_stats.apply_stats(base_stats)
 	for equipmentScene in equipment_slots.list():
 		var equipment = equipmentScene.instantiate()
 		if equipment is not Equipment:
@@ -36,6 +37,8 @@ func _ready() -> void:
 	collected_stats.apply_mods()
 	max_health = collected_stats.health
 	health = max_health
+	
+	$LifeCounter.text = str(round(health)) + "/" + str(round(max_health))
 
 func flip():
 	$Appearance.scale.x = -1
@@ -87,7 +90,8 @@ func take_damage(damage: int):
 			defend_stats.apply_stats(stats)
 	defend_stats.apply_mods()
 	
-	var damage_taken = damage * (1 - defend_stats.blocked_percent) - defend_stats.defence
+	var damage_taken = damage * (1 - max(defend_stats.blocked_percent, 0)) - max(defend_stats.defence, 0)
+	damage_taken = max(damage_taken, 0)
 	
 	print(name, ": Got attacked with ", damage, " damage, ",
 		defend_stats.defence," defended, ", 

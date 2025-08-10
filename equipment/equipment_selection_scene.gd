@@ -22,7 +22,7 @@ func _ready() -> void:
 	#$PlayerStatsView1.player_description = player1.description
 	$PlayerStatsView1.stats = PlayerState.player1_equipment.list().reduce(
 		func (stats, equipment):
-			stats.apply_stats(equipment.stats)
+			stats.apply_stats(equipment.instantiate().stats)
 			return stats,
 		EquipmentStats.new(),
 	)
@@ -35,7 +35,7 @@ func _ready() -> void:
 	#$PlayerStatsView2.player_description = player2.description
 	$PlayerStatsView2.stats = PlayerState.player2_equipment.list().reduce(
 		func (stats, equipment):
-			stats.apply_stats(equipment.stats)
+			stats.apply_stats(equipment.instantiate().stats)
 			return stats,
 		EquipmentStats.new(),
 	)

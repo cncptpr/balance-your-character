@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6wgibksk7qr2"]
 
-[ext_resource type="Script" uid="uid://cvg02bncgw2v5" path="res://player/player_stats_screen/stats_bar.gd" id="1_hmtlc"]
+[ext_resource type="Script" uid="uid://cfp7jnom3u5db" path="res://player/player_stats_screen/stats_bar.gd" id="1_hmtlc"]
 [ext_resource type="Texture2D" uid="uid://hdrqm68s5tgv" path="res://assets/F_StatPoint.png" id="2_q5vc6"]
 
 [node name="StatsBar" type="Control"]
@@ -11,21 +11,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hmtlc")
+stat = 8.28
 
 [node name="ColorRect1" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(16, 16)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_q5vc6")
 
 [node name="ColorRect2" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(40, 16)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_q5vc6")
 
 [node name="ColorRect3" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(64, 16)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_q5vc6")

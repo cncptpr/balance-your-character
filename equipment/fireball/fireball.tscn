@@ -140,6 +140,8 @@ animations = [{
 [node name="Fireball" type="Node2D"]
 script = ExtResource("1_h7nsf")
 stats = ExtResource("2_ah007")
+title = "Fireball"
+desciption = "A Ball of fire..."
 metadata/_custom_type_script = "uid://bo1i0lv8dti7f"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
