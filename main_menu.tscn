@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cxwk4ienbmuxe" path="res://assets/Menu/Button.webp" id="2_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://cr4uh68pkcd52" path="res://assets/Menu/Menu_Backdrop.webp" id="2_glbon"]
 [ext_resource type="AudioStream" uid="uid://001nhr1rcod7" path="res://assets/Menu/Click.wav" id="3_fu7sn"]
-[ext_resource type="Script" uid="uid://mvrlyvmescff" path="res://globalvar.gd" id="4_jix8l"]
+[ext_resource type="Script" path="res://globalvar.gd" id="4_jix8l"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_06t4h"]
 

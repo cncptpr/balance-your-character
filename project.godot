@@ -18,9 +18,6 @@ config/icon="uid://dk4q6fba0mqqq"
 [autoload]
 
 Globalvar="*res://globalvar.gd"
-
-[autoload]
-
 PlayerState="*res://player/player_state.gd"
 EquipmentRegisty="*res://equipment/registy.gd"
 DragingController="*res://equipment/draging_controller.gd"
