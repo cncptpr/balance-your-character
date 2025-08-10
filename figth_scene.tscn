@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://coirn3vq5h333"]
+[gd_scene load_steps=14 format=3 uid="uid://coirn3vq5h333"]
 
 [ext_resource type="Script" uid="uid://djee81mkeqvx0" path="res://scene.gd" id="1_nxogm"]
 [ext_resource type="PackedScene" uid="uid://cslx5egmkcksv" path="res://player/maskot/maskot.tscn" id="2_exjn7"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://02iethx8s0lv" path="res://equipment/fireball/fireball.tscn" id="4_exjn7"]
 [ext_resource type="PackedScene" uid="uid://di1qy5nkg08ky" path="res://equipment/plank/plank.tscn" id="5_nhxt3"]
 [ext_resource type="PackedScene" uid="uid://bywaln2xtvyjy" path="res://player/warrior/warrior.tscn" id="6_dbvx1"]
-[ext_resource type="Texture2D" uid="uid://cxwk4ienbmuxe" path="res://assets/concept-art/Button.webp" id="8_dbvx1"]
+[ext_resource type="Texture2D" uid="uid://cxwk4ienbmuxe" path="res://assets/Menu/Button.webp" id="8_dbvx1"]
+[ext_resource type="AudioStream" uid="uid://001nhr1rcod7" path="res://assets/Menu/Click.wav" id="9_e1fy6"]
+[ext_resource type="AudioStream" uid="uid://dvl17jx2lnxtf" path="res://assets/Menu/d 09.08.25 balance your character main theme.wav" id="10_58egn"]
 
 [sub_resource type="Resource" id="Resource_e1fy6"]
 script = ExtResource("4_3jlcx")
@@ -103,4 +105,19 @@ theme_override_font_sizes/font_size = 40
 text = "Score"
 horizontal_alignment = 1
 
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_e1fy6")
+volume_db = -29.884
+pitch_scale = 0.5
+max_polyphony = 3
+playback_type = 1
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_58egn")
+volume_db = -3.962
+autoplay = true
+max_polyphony = 3
+playback_type = 1
+
+[connection signal="mouse_entered" from="GameEnd/start_balance/Button" to="." method="_on_button_mouse_touched_button_again"]
 [connection signal="pressed" from="GameEnd/start_balance/Button" to="." method="_on_button_pressed_next_balance"]

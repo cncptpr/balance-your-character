@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0nhskn2dkhhk"]
 
 [ext_resource type="Script" uid="uid://do1f5k0ri6sjs" path="res://balance_screen.gd" id="1_icfci"]
-[ext_resource type="Texture2D" uid="uid://csbvgr1fsaea0" path="res://assets/concept-art/redButton.webp" id="2_eja8j"]
+[ext_resource type="Texture2D" uid="uid://csbvgr1fsaea0" path="res://assets/Menu/redButton.webp" id="2_eja8j"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4sabo"]
 

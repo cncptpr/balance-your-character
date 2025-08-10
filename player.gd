@@ -22,6 +22,8 @@ var attack_stats: EquipmentStats
 
 func _ready() -> void:
 	fullname = generate_name()
+	setAppearance()
+	
 	animationTree.active = true
 	animationStateMachine.travel("Idle")
 	for equipmentScene in equipmentSlots.list():
@@ -35,6 +37,21 @@ func flip():
 
 func generate_name():
 	return surnames[randi_range(0,7)] + " the " + lastnames[randi_range(0,4)]
+
+func setAppearance():
+	var type: int = randi_range(0,2)
+	if type == 0:
+		$Appearance/Sprite2D.texture = load("res://assets/Players/CL_Tank.webp")
+		$Appearance/Sprite2D/arm.texture = load("res://assets/Players/CL_TankArm.webp")
+		$Appearance/Sprite2D/arm.offset = Vector2(0, 0)
+	if type == 1:
+		$Appearance/Sprite2D.texture = load("res://assets/Players/CL_Mage.png")
+		$Appearance/Sprite2D/arm.texture = load("res://assets/Players/CL_MageArm.png")
+		$Appearance/Sprite2D/arm.offset = Vector2(-156, -136)
+	if type ==2:
+		$Appearance/Sprite2D.texture = load("res://assets/Players/CL_Fighter.png")
+		$Appearance/Sprite2D/arm.texture = load("res://assets/Players/CL_FighterArm.png")
+		$Appearance/Sprite2D/arm.offset = Vector2(-100, -160)
 
 func start_figth():
 	print(name, ": Start Figth")

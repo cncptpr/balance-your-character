@@ -11,3 +11,6 @@ func _on_button_pressed_main_menu() -> void:
 	get_tree().change_scene_to_file("res://main_menu.tscn")
 	print("pressed return to menu")
 	pass
+
+func _on_button_mouse_touched_button_exit() -> void:
+	$ButtonSound.play()
