@@ -33,6 +33,8 @@ func _ready() -> void:
 		if equipment is not Equipment:
 			continue
 		$Appearance/Sprite2D/Inventory.add_child(equipment)
+		if !EquipmentRegisty.weapons.has(equipmentScene):
+			equipment.visible = false
 		collected_stats.apply_stats(equipment.defend())
 	collected_stats.apply_mods()
 	max_health = collected_stats.health

@@ -6,7 +6,7 @@ class_name Card extends Node2D
 		equipment_scene = value
 		did_equipment_scene_change = true
 
-var equipment: Node = null
+var equipment: Equipment = null
 var did_equipment_scene_change := true
 
 # For drag & drop
@@ -34,13 +34,17 @@ func set_pos_index(value: int):
 func update_equipment() -> void:
 	if equipment and is_instance_valid(equipment):
 		print("Freeing old equipment")
+		$Label.text = ""
+		$Label2.text = ""
 		equipment.queue_free()
 		equipment = null
 
 	if equipment_scene:
 		print("Instantiating new equipment")
 		equipment = equipment_scene.instantiate()
-		add_child(equipment)
+		$Pos.add_child(equipment)
+		$Label.text = equipment.title
+		$Label2.text = equipment.desciption
 
 		if Engine.is_editor_hint():
 			equipment.owner = get_tree().edited_scene_root

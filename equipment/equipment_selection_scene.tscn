@@ -8,10 +8,10 @@
 script = ExtResource("1_gcc0y")
 
 [node name="PlayerPos1" parent="." instance=ExtResource("2_5wtt2")]
-position = Vector2(384, 576)
+position = Vector2(384, 618)
 
 [node name="PlayerPos2" parent="." instance=ExtResource("2_5wtt2")]
-position = Vector2(768, 576)
+position = Vector2(768, 618)
 
 [node name="CardPos1" type="Node2D" parent="."]
 position = Vector2(320, 128)

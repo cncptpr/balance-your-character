@@ -20,6 +20,8 @@ health_mod = 0.95
 metadata/_custom_type_script = "uid://dwlbo8pci7g2t"
 
 [node name="MyticSword" type="Node2D"]
+position = Vector2(0, -1.90735e-06)
+rotation = 0.579614
 script = ExtResource("1_76ocb")
 stats = SubResource("Resource_j4lqd")
 title = "Mystic sword"
@@ -27,5 +29,6 @@ desciption = "A fast weapon for skilled fighters"
 metadata/_custom_type_script = "uid://bo1i0lv8dti7f"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.06982, -17.7684)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_pp8oo")
