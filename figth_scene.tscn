@@ -1,26 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://coirn3vq5h333"]
+[gd_scene load_steps=7 format=3 uid="uid://coirn3vq5h333"]
 
 [ext_resource type="Script" uid="uid://djee81mkeqvx0" path="res://scene.gd" id="1_nxogm"]
-[ext_resource type="PackedScene" uid="uid://cslx5egmkcksv" path="res://player/maskot/maskot.tscn" id="2_exjn7"]
-[ext_resource type="PackedScene" uid="uid://gvdf1sea6l68" path="res://equipment/sword/sword.tscn" id="3_pdg6h"]
-[ext_resource type="Script" uid="uid://ltgywyv7k6nf" path="res://equipment/equipment_slots.gd" id="4_3jlcx"]
-[ext_resource type="PackedScene" uid="uid://02iethx8s0lv" path="res://equipment/fireball/fireball.tscn" id="4_exjn7"]
-[ext_resource type="PackedScene" uid="uid://di1qy5nkg08ky" path="res://equipment/plank/plank.tscn" id="5_nhxt3"]
-[ext_resource type="PackedScene" uid="uid://bywaln2xtvyjy" path="res://player/warrior/warrior.tscn" id="6_dbvx1"]
+[ext_resource type="Texture2D" uid="uid://cxxe3f2so5wc7" path="res://assets/backgounds/grass_and _mountains.webp" id="5_nhxt3"]
 [ext_resource type="Texture2D" uid="uid://cxwk4ienbmuxe" path="res://assets/Menu/Button.webp" id="8_dbvx1"]
 [ext_resource type="AudioStream" uid="uid://001nhr1rcod7" path="res://assets/Menu/Click.wav" id="9_e1fy6"]
 [ext_resource type="AudioStream" uid="uid://dvl17jx2lnxtf" path="res://assets/Menu/d 09.08.25 balance your character main theme.wav" id="10_58egn"]
-
-[sub_resource type="Resource" id="Resource_e1fy6"]
-script = ExtResource("4_3jlcx")
-chest = ExtResource("5_nhxt3")
-weapon = ExtResource("3_pdg6h")
-metadata/_custom_type_script = "uid://ltgywyv7k6nf"
-
-[sub_resource type="Resource" id="Resource_58egn"]
-script = ExtResource("4_3jlcx")
-weapon = ExtResource("4_exjn7")
-metadata/_custom_type_script = "uid://ltgywyv7k6nf"
 
 [sub_resource type="Theme" id="Theme_dbvx1"]
 
@@ -115,6 +99,12 @@ volume_db = -3.962
 autoplay = true
 max_polyphony = 3
 playback_type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(578.632, 324)
+scale = Vector2(0.794118, 0.794118)
+texture = ExtResource("5_nhxt3")
 
 [connection signal="mouse_entered" from="GameEnd/start_balance/Button" to="." method="_on_button_mouse_touched_button_again"]
 [connection signal="pressed" from="GameEnd/start_balance/Button" to="." method="_on_button_pressed_next_balance"]

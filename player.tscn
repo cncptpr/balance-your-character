@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://cjeq7hygogjmc"]
+[gd_scene load_steps=20 format=3 uid="uid://cjeq7hygogjmc"]
 
 [ext_resource type="Script" uid="uid://j366t82utj4u" path="res://player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://c6klu6m2ctb" path="res://assets/man_stolen.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://dwlbo8pci7g2t" path="res://equipment/stats.gd" id="2_i3pqv"]
-[ext_resource type="Script" uid="uid://ltgywyv7k6nf" path="res://equipment/EquipmentSlots.gd" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://31jgub1plbyn" path="res://assets/Players/CL_TankArm.webp" id="5_sweqy"]
 
 [sub_resource type="Resource" id="Resource_hqtel"]

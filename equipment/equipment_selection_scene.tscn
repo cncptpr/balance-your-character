@@ -1,11 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://7uy7m8sn157b"]
+[gd_scene load_steps=8 format=3 uid="uid://7uy7m8sn157b"]
 
 [ext_resource type="Script" uid="uid://bmdkmdeicmoyy" path="res://equipment/equipment_selection_scene.gd" id="1_gcc0y"]
 [ext_resource type="PackedScene" uid="uid://duw3n735ajun4" path="res://equipment/equipment_dropable.tscn" id="2_5wtt2"]
 [ext_resource type="PackedScene" uid="uid://cv0w6a73wn6c8" path="res://player/player_stats_screen/player_stats_view.tscn" id="3_s4jw2"]
+[ext_resource type="Texture2D" uid="uid://cr4uh68pkcd52" path="res://assets/Menu/Menu_Backdrop.webp" id="4_82ipg"]
+[ext_resource type="Texture2D" uid="uid://cxwk4ienbmuxe" path="res://assets/Menu/Button.webp" id="5_5nfeh"]
+[ext_resource type="Texture2D" uid="uid://bcyqovq6ihnpv" path="res://assets/equipment/CL_CryptoniteSword.png" id="5_rf1xr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rf1xr"]
+font_size = 130
+font_color = Color(0, 0, 0, 1)
 
 [node name="EquipmentSelectionScene" type="Node2D"]
 script = ExtResource("1_gcc0y")
+
+[node name="MenuBackdrop" type="Sprite2D" parent="."]
+z_index = -12
+position = Vector2(579, 322)
+texture = ExtResource("4_82ipg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(580, 504)
+scale = Vector2(0.92228, 1.18066)
+texture = ExtResource("5_5nfeh")
 
 [node name="PlayerPos1" parent="." instance=ExtResource("2_5wtt2")]
 position = Vector2(384, 618)
@@ -23,20 +41,35 @@ position = Vector2(576, 128)
 position = Vector2(832, 128)
 
 [node name="Button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 520.0
+offset_top = 456.0
+offset_right = 1552.0
+offset_bottom = 1488.0
+scale = Vector2(0.12, 0.12)
+icon = ExtResource("5_rf1xr")
+flat = true
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 266.667
+offset_top = 800.0
+offset_right = 813.667
+offset_bottom = 1060.0
 text = "FIGHT"
+label_settings = SubResource("LabelSettings_rf1xr")
 
 [node name="PlayerStatsView1" parent="." instance=ExtResource("3_s4jw2")]
 offset_left = 16.0
 offset_top = 192.0
 offset_right = 16.0
 offset_bottom = 192.0
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerStatsView2" parent="." instance=ExtResource("3_s4jw2")]
 offset_left = 992.0
 offset_top = 192.0
 offset_right = 992.0
 offset_bottom = 192.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Button" to="." method="next"]
