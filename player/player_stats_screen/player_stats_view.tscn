@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv0w6a73wn6c8"]
+
+[ext_resource type="Script" uid="uid://b8e21la61aln3" path="res://player/player_stats_screen/player_stats_view.gd" id="1_b6m1g"]
+[ext_resource type="Texture2D" uid="uid://cxwk4ienbmuxe" path="res://assets/concept-art/Button.webp" id="2_sm8ku"]
+[ext_resource type="PackedScene" uid="uid://b6wgibksk7qr2" path="res://player/player_stats_screen/stats_bar.tscn" id="3_cp54a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1u8ci"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2lcht"]
+font_size = 11
+font_color = Color(0, 0, 0, 1)
+
+[node name="PlayerStatsView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b6m1g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, 192)
+rotation = 1.5708
+scale = Vector2(0.62673, 0.663687)
+texture = ExtResource("2_sm8ku")
+
+[node name="StatsViewTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 72.0
+offset_bottom = 39.0
+text = "Player"
+label_settings = SubResource("LabelSettings_1u8ci")
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 47.0
+offset_right = 143.0
+offset_bottom = 122.0
+text = "Lorem Imposum Dolores bla bla bla"
+label_settings = SubResource("LabelSettings_2lcht")
+autowrap_mode = 2
+
+[node name="DamageLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 115.0
+offset_right = 72.0
+offset_bottom = 138.0
+text = "Damage"
+label_settings = SubResource("LabelSettings_2lcht")
+
+[node name="StatsBar" parent="DamageLabel" instance=ExtResource("3_cp54a")]
+layout_mode = 1
+offset_top = 12.0
+offset_bottom = 12.0
+stat = 5.42
+
+[node name="DefenceLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 163.0
+offset_right = 72.0
+offset_bottom = 186.0
+text = "Defence"
+label_settings = SubResource("LabelSettings_2lcht")
+
+[node name="StatsBar" parent="DefenceLabel" instance=ExtResource("3_cp54a")]
+layout_mode = 1
+offset_top = 12.0
+offset_bottom = 12.0
+stat = -2.835
+
+[node name="SpeedLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 219.0
+offset_right = 72.0
+offset_bottom = 242.0
+text = "Speed"
+label_settings = SubResource("LabelSettings_2lcht")
+
+[node name="StatsBar" parent="SpeedLabel" instance=ExtResource("3_cp54a")]
+layout_mode = 1
+offset_top = 12.0
+offset_bottom = 12.0
+
+[node name="BlockLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 275.0
+offset_right = 72.0
+offset_bottom = 298.0
+text = "Block"
+label_settings = SubResource("LabelSettings_2lcht")
+
+[node name="StatsBar" parent="BlockLabel" instance=ExtResource("3_cp54a")]
+layout_mode = 1
+offset_top = 12.0
+offset_bottom = 12.0

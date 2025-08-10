@@ -18,11 +18,27 @@ func _ready() -> void:
 	var player1: Player = PlayerState.player1_scene.instantiate()
 	player1.equipment_slots = PlayerState.player1_equipment
 	$PlayerPos1.add_child(player1)
+	$PlayerStatsView1.title = player1.fullname
+	#$PlayerStatsView1.player_description = player1.description
+	$PlayerStatsView1.stats = PlayerState.player1_equipment.list().reduce(
+		func (stats, equipment):
+			stats.apply_stats(equipment.stats)
+			return stats,
+		EquipmentStats.new(),
+	)
 	
 	var player2: Player = PlayerState.player2_scene.instantiate()
 	player2.equipment_slots = PlayerState.player2_equipment
 	player2.flip()
 	$PlayerPos2.add_child(player2)
+	$PlayerStatsView2.title = player2.fullname
+	#$PlayerStatsView2.player_description = player2.description
+	$PlayerStatsView2.stats = PlayerState.player2_equipment.list().reduce(
+		func (stats, equipment):
+			stats.apply_stats(equipment.stats)
+			return stats,
+		EquipmentStats.new(),
+	)
 	
 	equipment_on_cards = pick_different(EquipmentRegisty.all, CARD_COUNT)
 	
